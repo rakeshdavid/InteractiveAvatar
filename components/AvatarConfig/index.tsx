@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   AvatarQuality,
   ElevenLabsModel,
@@ -37,23 +37,12 @@ export const AvatarConfig: React.FC<AvatarConfigProps> = ({
       (avatar) => avatar.avatar_id === config.avatarName,
     );
 
-    if (!avatar) {
-      return {
-        isCustom: true,
-        name: "Custom Avatar ID",
-        avatarId: null,
-      };
-    } else {
-      return {
-        isCustom: false,
-        name: avatar.name,
-        avatarId: avatar.avatar_id,
-      };
-    }
+    return avatar || AVATARS[0]; // Default to first avatar if not found
   }, [config.avatarName]);
 
   return (
     <div className="relative flex flex-col gap-4 w-[550px] py-8 max-h-full overflow-y-auto px-4">
+      {/* Hidden Custom Knowledge Base ID field - can be restored if needed
       <Field label="Custom Knowledge Base ID">
         <Input
           placeholder="Enter custom knowledge base ID"
@@ -61,41 +50,17 @@ export const AvatarConfig: React.FC<AvatarConfigProps> = ({
           onChange={(value) => onChange("knowledgeId", value)}
         />
       </Field>
-      <Field label="Avatar ID">
+      */}
+      <Field label="Pick your AI Avatar">
         <Select
-          isSelected={(option) =>
-            typeof option === "string"
-              ? !!selectedAvatar?.isCustom
-              : option.avatar_id === selectedAvatar?.avatarId
-          }
-          options={[...AVATARS, "CUSTOM"]}
+          isSelected={(option) => option.avatar_id === selectedAvatar.avatar_id}
+          options={AVATARS}
           placeholder="Select Avatar"
-          renderOption={(option) => {
-            return typeof option === "string"
-              ? "Custom Avatar ID"
-              : option.name;
-          }}
-          value={
-            selectedAvatar?.isCustom ? "Custom Avatar ID" : selectedAvatar?.name
-          }
-          onSelect={(option) => {
-            if (typeof option === "string") {
-              onChange("avatarName", "");
-            } else {
-              onChange("avatarName", option.avatar_id);
-            }
-          }}
+          renderOption={(option) => option.name}
+          value={selectedAvatar.name}
+          onSelect={(option) => onChange("avatarName", option.avatar_id)}
         />
       </Field>
-      {selectedAvatar?.isCustom && (
-        <Field label="Custom Avatar ID">
-          <Input
-            placeholder="Enter custom avatar ID"
-            value={config.avatarName}
-            onChange={(value) => onChange("avatarName", value)}
-          />
-        </Field>
-      )}
       <Field label="Language">
         <Select
           isSelected={(option) => option.value === config.language}
@@ -117,6 +82,7 @@ export const AvatarConfig: React.FC<AvatarConfigProps> = ({
           onSelect={(option) => onChange("quality", option)}
         />
       </Field>
+      {/* Voice Chat Transport field hidden - defaults to WEBSOCKET
       <Field label="Voice Chat Transport">
         <Select
           isSelected={(option) => option === config.voiceChatTransport}
@@ -126,6 +92,8 @@ export const AvatarConfig: React.FC<AvatarConfigProps> = ({
           onSelect={(option) => onChange("voiceChatTransport", option)}
         />
       </Field>
+      */}
+      {/* Hidden advanced settings - ElevenLabs and Deepgram configurations
       {showMore && (
         <>
           <h1 className="text-zinc-100 w-full text-center mt-5">
@@ -187,6 +155,7 @@ export const AvatarConfig: React.FC<AvatarConfigProps> = ({
       >
         {showMore ? "Show less" : "Show more..."}
       </button>
+      */}
     </div>
   );
 };

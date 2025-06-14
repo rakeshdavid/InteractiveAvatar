@@ -25,7 +25,7 @@ import { AVATARS } from "@/app/lib/constants";
 const DEFAULT_CONFIG: StartAvatarRequest = {
   quality: AvatarQuality.Low,
   avatarName: AVATARS[0].avatar_id,
-  knowledgeId: undefined,
+  knowledgeId: "36c157ae93e24f6fae33d3f502c9ca4c",
   voice: {
     rate: 1.5,
     emotion: VoiceEmotion.EXCITED,
@@ -140,9 +140,9 @@ function InteractiveAvatar() {
               <Button onClick={() => startSessionV2(true)}>
                 Start Voice Chat
               </Button>
-              <Button onClick={() => startSessionV2(false)}>
+              {/* <Button onClick={() => startSessionV2(false)}>
                 Start Text Chat
-              </Button>
+              </Button> */}
             </div>
           ) : (
             <LoadingIcon />
