@@ -49,9 +49,9 @@ export const AvatarConfig: React.FC<AvatarConfigProps> = ({
   }, [config.knowledgeId]);
 
   return (
-    <div className="relative flex flex-col gap-6 w-[650px] py-8 max-h-full overflow-y-auto px-4">
+    <div className="relative flex flex-col gap-6 w-full max-w-2xl py-8 max-h-full overflow-y-auto px-4">
       {/* Configuration Controls - 3 Column Grid */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <Field label="Prompt">
           <Select
             isSelected={(option) => option.id === selectedKnowledgeBase.id}

@@ -1,0 +1,24 @@
+<svg width="152" height="152" viewBox="0 0 152 152" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background gradient -->
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#7559FF;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#5B47CC;stop-opacity:1" />
+      </linearGradient>
+      <linearGradient id="avatar" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#E5E5E5;stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="152" height="152" rx="19" fill="url(#bg)" />
+    
+    <!-- Avatar silhouette -->
+    <circle cx="76" cy="53.199999999999996" r="22.8" fill="url(#avatar)" />
+    <ellipse cx="76" cy="114" rx="33.44" ry="27.36" fill="url(#avatar)" />
+    
+    <!-- Chat bubble indicator -->
+    <circle cx="114" cy="38" r="12.16" fill="#00FF88" />
+    <text x="114" y="43.31999999999999" font-family="Arial, sans-serif" font-size="12.16" font-weight="bold" text-anchor="middle" fill="#000">AI</text>
+  </svg>

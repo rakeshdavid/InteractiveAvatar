@@ -37,7 +37,7 @@ export const AvatarGallery: React.FC<AvatarGalleryProps> = ({
   return (
     <div className="w-full">
       <h3 className="text-zinc-100 text-lg font-medium mb-4">Choose Your Avatar</h3>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
         {sortedAvatars.map((avatar) => (
           <Tilt
             key={avatar.avatar_id}

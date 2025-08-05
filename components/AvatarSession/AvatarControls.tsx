@@ -37,13 +37,13 @@ export const AvatarControls: React.FC = () => {
         }}
       >
         <ToggleGroupItem
-          className="data-[state=on]:bg-zinc-800 rounded-lg p-2 text-sm w-[90px] text-center"
+          className="data-[state=on]:bg-zinc-800 rounded-lg py-3 px-4 text-sm w-[90px] text-center min-h-[44px] touch-manipulation flex items-center justify-center"
           value="voice"
         >
           Voice Chat
         </ToggleGroupItem>
         <ToggleGroupItem
-          className="data-[state=on]:bg-zinc-800 rounded-lg p-2 text-sm w-[90px] text-center"
+          className="data-[state=on]:bg-zinc-800 rounded-lg py-3 px-4 text-sm w-[90px] text-center min-h-[44px] touch-manipulation flex items-center justify-center"
           value="text"
         >
           Text Chat
