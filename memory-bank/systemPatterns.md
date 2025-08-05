@@ -112,3 +112,17 @@ const sortedAvatars = [...AVATARS].sort((a, b) => {
 *   **Server-side API routes** for secure token generation
 *   **Environment variables** for API credentials (`HEYGEN_API_KEY`)
 *   **Public environment variables** for client-side URLs (`NEXT_PUBLIC_BASE_API_URL`)
+
+## Development Workflow Pattern
+
+### GitHub Strategy Implementation
+*   **Feature Branch Workflow** - Development on feature branches with descriptive names
+*   **Comprehensive Pull Requests** - Detailed PR descriptions with technical impact analysis
+*   **Squash Merge Strategy** - Clean commit history maintenance through squash merging
+*   **Professional Documentation** - README updates and memory bank synchronization
+
+### Deployment Pipeline
+*   **Dependency Management** - pnpm lockfile synchronization for consistent builds
+*   **Build Verification** - Local build testing before deployment
+*   **Environment Variables** - Production configuration through hosting platform settings
+*   **Automated Deployment** - Vercel integration with GitHub for continuous deployment

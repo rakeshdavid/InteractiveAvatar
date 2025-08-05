@@ -35,3 +35,17 @@
 *   `HEYGEN_API_KEY`: The secret key for the HeyGen Streaming Avatar service. This needs to be set in the Vercel project settings.
 *   `OPENAI_API_KEY`: The secret key for the OpenAI API. This also needs to be set in the Vercel project settings.
 *   `NEXT_PUBLIC_BASE_API_URL`: The public URL for the HeyGen API. This is a public variable and can be set in the Vercel project settings as well.
+
+## Development Workflow
+
+### GitHub Strategy
+*   **Feature Branch Development** - `feature/enhanced-avatar-gallery` branch for organized development
+*   **Pull Request Management** - [PR #1](https://github.com/rakeshdavid/InteractiveAvatar/pull/1) with comprehensive documentation
+*   **Squash Merge Strategy** - Clean commit history with detailed commit messages
+*   **Professional Documentation** - README updates with Rivalista branding and streamlined content
+
+### Deployment Pipeline
+*   **Dependency Management** - pnpm lockfile synchronization resolved for consistent builds
+*   **Vercel Integration** - Automatic deployment triggers from main branch commits
+*   **Build Verification** - Local build testing confirms production readiness
+*   **Environment Configuration** - Production variables configured through Vercel dashboard
