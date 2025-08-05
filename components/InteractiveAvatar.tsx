@@ -20,12 +20,12 @@ import { StreamingAvatarProvider, StreamingAvatarSessionState } from "./logic";
 import { LoadingIcon } from "./Icons";
 import { MessageHistory } from "./AvatarSession/MessageHistory";
 
-import { AVATARS } from "@/app/lib/constants";
+import { AVATARS, KNOWLEDGE_BASES } from "@/app/lib/constants";
 
 const DEFAULT_CONFIG: StartAvatarRequest = {
   quality: AvatarQuality.Low,
   avatarName: AVATARS[0].avatar_id,
-  knowledgeId: "36c157ae93e24f6fae33d3f502c9ca4c",
+  knowledgeId: KNOWLEDGE_BASES[0].id,
   voice: {
     rate: 1.5,
     emotion: VoiceEmotion.EXCITED,

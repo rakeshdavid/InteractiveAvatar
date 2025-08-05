@@ -12,8 +12,9 @@ import { Input } from "../Input";
 import { Select } from "../Select";
 
 import { Field } from "./Field";
+import { AvatarGallery } from "./AvatarGallery";
 
-import { AVATARS, STT_LANGUAGE_LIST } from "@/app/lib/constants";
+import { AVATARS, STT_LANGUAGE_LIST, KNOWLEDGE_BASES } from "@/app/lib/constants";
 
 interface AvatarConfigProps {
   onConfigChange: (config: StartAvatarRequest) => void;
@@ -40,59 +41,58 @@ export const AvatarConfig: React.FC<AvatarConfigProps> = ({
     return avatar || AVATARS[0]; // Default to first avatar if not found
   }, [config.avatarName]);
 
+  const selectedKnowledgeBase = useMemo(() => {
+    const knowledgeBase = KNOWLEDGE_BASES.find(
+      (kb) => kb.id === config.knowledgeId,
+    );
+    return knowledgeBase || KNOWLEDGE_BASES[0]; // Default to first if not found
+  }, [config.knowledgeId]);
+
   return (
-    <div className="relative flex flex-col gap-4 w-[550px] py-8 max-h-full overflow-y-auto px-4">
-      {/* Hidden Custom Knowledge Base ID field - can be restored if needed
-      <Field label="Custom Knowledge Base ID">
-        <Input
-          placeholder="Enter custom knowledge base ID"
-          value={config.knowledgeId}
-          onChange={(value) => onChange("knowledgeId", value)}
-        />
-      </Field>
-      */}
-      <Field label="Pick your AI Avatar">
-        <Select
-          isSelected={(option) => option.avatar_id === selectedAvatar.avatar_id}
-          options={AVATARS}
-          placeholder="Select Avatar"
-          renderOption={(option) => option.name}
-          value={selectedAvatar.name}
-          onSelect={(option) => onChange("avatarName", option.avatar_id)}
-        />
-      </Field>
-      <Field label="Language">
-        <Select
-          isSelected={(option) => option.value === config.language}
-          options={STT_LANGUAGE_LIST}
-          renderOption={(option) => option.label}
-          value={
-            STT_LANGUAGE_LIST.find((option) => option.value === config.language)
-              ?.label
-          }
-          onSelect={(option) => onChange("language", option.value)}
-        />
-      </Field>
-      <Field label="Avatar Quality">
-        <Select
-          isSelected={(option) => option === config.quality}
-          options={Object.values(AvatarQuality)}
-          renderOption={(option) => option}
-          value={config.quality}
-          onSelect={(option) => onChange("quality", option)}
-        />
-      </Field>
-      {/* Voice Chat Transport field hidden - defaults to WEBSOCKET
-      <Field label="Voice Chat Transport">
-        <Select
-          isSelected={(option) => option === config.voiceChatTransport}
-          options={Object.values(VoiceChatTransport)}
-          renderOption={(option) => option}
-          value={config.voiceChatTransport}
-          onSelect={(option) => onChange("voiceChatTransport", option)}
-        />
-      </Field>
-      */}
+    <div className="relative flex flex-col gap-6 w-[650px] py-8 max-h-full overflow-y-auto px-4">
+      {/* Configuration Controls - 3 Column Grid */}
+      <div className="grid grid-cols-3 gap-4">
+        <Field label="Prompt">
+          <Select
+            isSelected={(option) => option.id === selectedKnowledgeBase.id}
+            options={KNOWLEDGE_BASES}
+            placeholder="Select Prompt"
+            renderOption={(option) => option.name}
+            value={selectedKnowledgeBase.name}
+            onSelect={(option) => onChange("knowledgeId", option.id)}
+          />
+        </Field>
+        
+        <Field label="Language">
+          <Select
+            isSelected={(option) => option.value === config.language}
+            options={STT_LANGUAGE_LIST}
+            renderOption={(option) => option.label}
+            value={
+              STT_LANGUAGE_LIST.find((option) => option.value === config.language)
+                ?.label
+            }
+            onSelect={(option) => onChange("language", option.value)}
+          />
+        </Field>
+        
+        <Field label="Avatar Quality">
+          <Select
+            isSelected={(option) => option === config.quality}
+            options={Object.values(AvatarQuality)}
+            renderOption={(option) => option}
+            value={config.quality}
+            onSelect={(option) => onChange("quality", option)}
+          />
+        </Field>
+      </div>
+
+      {/* Avatar Gallery */}
+      <AvatarGallery
+        selectedAvatarId={config.avatarName}
+        onAvatarSelect={(avatarId) => onChange("avatarName", avatarId)}
+      />
+
       {/* Hidden advanced settings - ElevenLabs and Deepgram configurations
       {showMore && (
         <>
