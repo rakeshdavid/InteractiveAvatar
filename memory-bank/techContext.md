@@ -6,7 +6,7 @@
 *   **UI:** React 18, Tailwind CSS
 *   **Animations:** Framer Motion (3D tilt, spotlight effects)
 *   **AI:** OpenAI, HeyGen Streaming Avatar SDK
-*   **Components:** Enhanced avatar gallery with 3D interactive effects, badge system, responsive grid layouts
+*   **Components:** Enhanced avatar gallery with 3D interactive effects, badge system, responsive grid layouts, touch-optimized components with 44px minimum touch targets
 
 ## Dependencies
 

@@ -6,6 +6,7 @@ import {
   StartAvatarRequest,
   STTProvider,
   ElevenLabsModel,
+  ConnectionQuality,
 } from "@heygen/streaming-avatar";
 import { useEffect, useRef, useState } from "react";
 import { useMemoizedFn, useUnmount } from "ahooks";
@@ -16,6 +17,7 @@ import { AvatarVideo } from "./AvatarSession/AvatarVideo";
 import { useStreamingAvatarSession } from "./logic/useStreamingAvatarSession";
 import { AvatarControls } from "./AvatarSession/AvatarControls";
 import { useVoiceChat } from "./logic/useVoiceChat";
+import { useConnectionQuality } from "./logic/useConnectionQuality";
 import { StreamingAvatarProvider, StreamingAvatarSessionState } from "./logic";
 import { LoadingIcon } from "./Icons";
 import { MessageHistory } from "./AvatarSession/MessageHistory";
@@ -42,6 +44,7 @@ function InteractiveAvatar() {
   const { initAvatar, startAvatar, stopAvatar, sessionState, stream } =
     useStreamingAvatarSession();
   const { startVoiceChat } = useVoiceChat();
+  const { connectionQuality } = useConnectionQuality();
 
   const [config, setConfig] = useState<StartAvatarRequest>(DEFAULT_CONFIG);
 
@@ -124,8 +127,21 @@ function InteractiveAvatar() {
 
   return (
     <div className="w-full flex flex-col gap-4">
+      {/* Connection Quality Notification - Above video frame */}
+      {sessionState !== StreamingAvatarSessionState.INACTIVE && 
+       connectionQuality !== ConnectionQuality.UNKNOWN && (
+        <div className="flex justify-start">
+          <div className="bg-black text-white rounded-lg px-3 py-2 text-sm">
+            Connection Quality: {connectionQuality}
+          </div>
+        </div>
+      )}
       <div className="flex flex-col rounded-xl bg-zinc-900 overflow-hidden">
-        <div className="relative w-full aspect-video overflow-hidden flex flex-col items-center justify-center">
+        <div className={`relative w-full overflow-hidden flex flex-col items-center justify-center ${
+          sessionState !== StreamingAvatarSessionState.INACTIVE 
+            ? "aspect-video" 
+            : "sm:aspect-video min-h-[600px] sm:min-h-0"
+        }`}>
           {sessionState !== StreamingAvatarSessionState.INACTIVE ? (
             <AvatarVideo ref={mediaStream} />
           ) : (

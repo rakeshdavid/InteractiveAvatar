@@ -21,7 +21,7 @@ export const AudioInput: React.FC = () => {
   return (
     <div>
       <Button
-        className={`!p-2 relative`}
+        className={`!px-3 !py-3 !min-h-[44px] !w-[44px] relative flex items-center justify-center`}
         disabled={isVoiceChatLoading}
         onClick={handleMuteClick}
       >

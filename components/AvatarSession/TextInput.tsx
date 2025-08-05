@@ -64,30 +64,42 @@ export const TextInput: React.FC = () => {
   }, [message, previousText, startListening, stopListening]);
 
   return (
-    <div className="flex flex-row gap-2 items-end w-full">
-      <Select
-        isSelected={(option) => option === taskType}
-        options={Object.values(TaskType)}
-        renderOption={(option) => option.toUpperCase()}
-        value={taskType.toUpperCase()}
-        onSelect={setTaskType}
-      />
-      <Select
-        isSelected={(option) => option === taskMode}
-        options={Object.values(TaskMode)}
-        renderOption={(option) => option.toUpperCase()}
-        value={taskMode.toUpperCase()}
-        onSelect={setTaskMode}
-      />
-      <Input
-        className="min-w-[500px]"
-        placeholder={`Type something for the avatar to ${taskType === TaskType.REPEAT ? "repeat" : "respond"}...`}
-        value={message}
-        onChange={setMessage}
-      />
-      <Button className="!p-2" onClick={handleSend}>
-        <SendIcon size={20} />
-      </Button>
+    <div className="flex flex-col gap-3 w-full">
+      {/* Control selects grouped together for mobile */}
+      <div className="flex flex-col sm:flex-row gap-2 w-full">
+        <Select
+          isSelected={(option) => option === taskType}
+          options={Object.values(TaskType)}
+          renderOption={(option) => option.toUpperCase()}
+          value={taskType.toUpperCase()}
+          onSelect={setTaskType}
+        />
+        <Select
+          isSelected={(option) => option === taskMode}
+          options={Object.values(TaskMode)}
+          renderOption={(option) => option.toUpperCase()}
+          value={taskMode.toUpperCase()}
+          onSelect={setTaskMode}
+        />
+      </div>
+      
+      {/* Message input and send button */}
+      <div className="flex gap-2 items-end w-full">
+        <Input
+          className="flex-1 min-w-0"
+          placeholder={`Type something for the avatar to ${taskType === TaskType.REPEAT ? "repeat" : "respond"}...`}
+          value={message}
+          onChange={setMessage}
+          inputMode="text"
+          autoComplete="off"
+          autoCapitalize="sentences"
+          autoCorrect="on"
+          enterKeyHint="send"
+        />
+        <Button className="!px-3 !py-3 !min-h-[44px] flex items-center justify-center" onClick={handleSend}>
+          <SendIcon size={20} />
+        </Button>
+      </div>
     </div>
   );
 };

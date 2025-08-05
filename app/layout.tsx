@@ -1,8 +1,9 @@
 import "@/styles/globals.css";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
 
 import NavBar from "@/components/NavBar";
+import { InstallPrompt } from "@/components/InstallPrompt";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -14,13 +15,51 @@ const fontMono = FontMono({
   variable: "--font-geist-mono",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#7559FF",
+};
+
 export const metadata: Metadata = {
   title: {
-    default: "Rivalista Demo",
-    template: `%s - Rivalista Demo`,
+    default: "Interactive AI Avatar Demo",
+    template: `%s - Interactive AI Avatar Demo`,
   },
+  description: "AI Avatar Interactive Experience - Chat with realistic AI avatars powered by HeyGen",
+  keywords: ["AI", "Avatar", "Chat", "Interactive", "HeyGen", "Conversation", "PWA"],
+  authors: [{ name: "Rivalista" }],
+  manifest: "/manifest.json",
   icons: {
     icon: "/rivalistalogo.svg",
+    apple: "/icons/icon-192x192.svg",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Avatar Demo",
+  },
+  openGraph: {
+    type: "website",
+    title: "Interactive AI Avatar Demo",
+    description: "AI Avatar Interactive Experience - Chat with realistic AI avatars",
+    siteName: "Interactive AI Avatar Demo",
+    images: [
+      {
+        url: "/demo.png",
+        width: 1200,
+        height: 800,
+        alt: "Interactive AI Avatar Demo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Interactive AI Avatar Demo",
+    description: "AI Avatar Interactive Experience - Chat with realistic AI avatars",
+    images: ["/demo.png"],
   },
 };
 
@@ -41,6 +80,7 @@ export default function RootLayout({
           <NavBar />
           {children}
         </main>
+        <InstallPrompt />
       </body>
     </html>
   );
