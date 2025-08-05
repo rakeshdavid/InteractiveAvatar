@@ -1,12 +1,12 @@
 # Tech Context
 
-# Tech Context
-
 ## Technology Stack
 
-*   **Framework:** Next.js
-*   **UI:** React, Tailwind CSS
-*   **AI:** OpenAI, HeyGen Streaming Avatar
+*   **Framework:** Next.js 14
+*   **UI:** React 18, Tailwind CSS
+*   **Animations:** Framer Motion (3D tilt, spotlight effects)
+*   **AI:** OpenAI, HeyGen Streaming Avatar SDK
+*   **Components:** Enhanced avatar gallery with 3D interactive effects, badge system, responsive grid layouts
 
 ## Dependencies
 
@@ -19,6 +19,9 @@
 *   `openai`: For interacting with the OpenAI API.
 *   `react`: The core React library.
 *   `react-dom`: For rendering React components in the browser.
+*   `framer-motion`: Animation library for 3D tilt and smooth transitions.
+*   `clsx`: Utility for conditional className construction.
+*   `tailwind-merge`: Utility for merging Tailwind CSS classes efficiently.
 
 ## Development Scripts
 

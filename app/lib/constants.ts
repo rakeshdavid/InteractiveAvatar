@@ -2,42 +2,85 @@ export const AVATARS = [
   {
     avatar_id: "Ann_Therapist_public",
     name: "Ann Therapist",
+    image: "/avatars/ann-therapist.jpg",
   },
   {
     avatar_id: "Marianne_Chair_Sitting_public",
     name: "Marianne",
+    image: "/avatars/marianne.jpg",
   },
   {
     avatar_id: "Katya_Chair_Sitting_public",
     name: "Katya",
+    image: "/avatars/katya.jpg",
   },
   {
     avatar_id: "Graham_Chair_Sitting_public",
     name: "Graham",
+    image: "/avatars/graham.jpg",
   },
   {
     avatar_id: "Alessandra_Chair_Sitting_public",
     name: "Alessandra",
+    image: "/avatars/alessandra.jpg",
+    isPopular: true,
   },
   {
     avatar_id: "Anastasia_Chair_Sitting_public",
     name: "Anastasia",
+    image: "/avatars/anastasia.jpg",
   },
   {
     avatar_id: "Amina_Chair_Sitting_public",
     name: "Amina",
+    image: "/avatars/amina.jpg",
   },
   {
     avatar_id: "Santa_Fireplace_Front_public",
     name: "Santa",
+    image: "/avatars/santa.jpg",
+    isPopular: true,
   },
   {
     avatar_id: "Dexter_Lawyer_Sitting_public",
     name: "Dexter",
+    image: "/avatars/dexter.jpg",
   },
   {
     avatar_id: "June_HR_public",
     name: "June",
+    image: "/avatars/june.jpg",
+  },
+  {
+    avatar_id: "SilasHR_public",
+    name: "Silas",
+    image: "/avatars/Silas.jpg",
+    isNew: true,
+  },
+  {
+    avatar_id: "Pedro_Chair_Sitting_public",
+    name: "Pedro",
+    image: "/avatars/Pedro.jpg",
+    isNew: true,
+  },
+  {
+    avatar_id: "Bryan_IT_Sitting_public",
+    name: "Bryan",
+    image: "/avatars/Bryan.jpg",
+    isNew: true,
+  },
+];
+
+export const KNOWLEDGE_BASES = [
+  {
+    id: "36c157ae93e24f6fae33d3f502c9ca4c",
+    name: "Therapist",
+    description: "A sassy therapeutic assistant that provides helpful advice with attitude"
+  },
+  {
+    id: "0a38b03a1ba345d3960bcbfa97d398cb",
+    name: "Santa",
+    description: "A festive Santa with a mischievous personality and playful banter"
   },
 ];
 

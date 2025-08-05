@@ -29,7 +29,16 @@ NOTE: Make sure you have enter your token into the `.env` file and run `npm run 
 
 To start your 'session' with a Interactive Avatar, first click the 'start' button. If your HeyGen API key is entered into the Server's .env file, then you should see our demo Interactive Avatar appear.
 
-If you want to see a different Avatar or try a different voice, you can close the session and enter the IDs and then 'start' the session again. Please see below for information on where to retrieve different Avatar and voice IDs that you can use.
+If you want to see a different Avatar, try a different voice, or switch Knowledge Bases, you can close the session and change the settings in the configuration panel, then 'start' the session again.
+
+### Knowledge Base Selection
+
+The application now supports multiple Knowledge Bases for different conversation experiences:
+
+- **Trashtalking Therapist** - A sassy therapeutic assistant that provides helpful advice with attitude
+- **Trash Talking Santa** - A festive Santa with a mischievous personality and playful banter
+
+You can switch between these Knowledge Bases using the dropdown selector in the configuration panel.
 
 ### Which Avatars can I use with this project?
 
