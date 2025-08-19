@@ -82,6 +82,11 @@ export const KNOWLEDGE_BASES = [
     name: "Santa",
     description: "A festive Santa with a mischievous personality and playful banter"
   },
+  {
+    id: "9c4717a048db46fdb7a112c642623d4c",
+    name: "Sports Buddy",
+    description: "An enthusiastic sports companion for discussions about games, teams, and athletic activities"
+  },
 ];
 
 export const STT_LANGUAGE_LIST = [
