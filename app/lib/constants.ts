@@ -73,12 +73,12 @@ export const AVATARS = [
 
 export const KNOWLEDGE_BASES = [
   {
-    id: "36c157ae93e24f6fae33d3f502c9ca4c",
+    id: "7f39f2101a6e419193426528c68f46b3",
     name: "Therapist",
     description: "A sassy therapeutic assistant that provides helpful advice with attitude"
   },
   {
-    id: "0a38b03a1ba345d3960bcbfa97d398cb",
+    id: "d29e13d0897344768f8aceb494f2a2c4",
     name: "Santa",
     description: "A festive Santa with a mischievous personality and playful banter"
   },
