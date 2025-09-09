@@ -76,6 +76,42 @@ export const AVATARS = [
     image: "/avatars/Bryan.jpg",
     isNew: true,
   },
+  {
+    avatar_id: "Alessandra_Grey_Sweater_public",
+    name: "Alessandra Grey",
+    image: "/avatars/Alessandra-Grey.png",
+    isNew: true,
+  },
+  {
+    avatar_id: "Elenora_FitnessCoach_public",
+    name: "Elenora (Fitness Coach)",
+    image: "/avatars/Elenora1.png",
+    isNew: true,
+  },
+  {
+    avatar_id: "Elenora_FitnessCoach2_public",
+    name: "Elenora (Fitness Coach 2)",
+    image: "/avatars/Elenora2.png",
+    isNew: true,
+  },
+  {
+    avatar_id: "Judy_Teacher_Sitting2_public",
+    name: "Judy",
+    image: "/avatars/Judy.png",
+    isNew: true,
+  },
+  {
+    avatar_id: "Katya_Pink_Suit_public",
+    name: "Katya (Pink)",
+    image: "/avatars/Karya-pink.png",
+    isNew: true,
+  },
+  {
+    avatar_id: "Katya_Black_Suit_public",
+    name: "Katya (Black)",
+    image: "/avatars/Katya-Black.png",
+    isNew: true,
+  },
 ];
 
 export const PROMPTS = [
