@@ -1,0 +1,851 @@
+{
+  "heygenReferences": [
+    {
+      "file": "CLAUDE.md",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HEYGEN",
+            "HEYGEN",
+            "HeyGen",
+            "HEYGEN",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 7,
+          "file": "CLAUDE.md"
+        }
+      ]
+    },
+    {
+      "file": "RELEASE_NOTES_v2.0.0.md",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HEYGEN",
+            "heygen"
+          ],
+          "count": 2,
+          "file": "RELEASE_NOTES_v2.0.0.md"
+        }
+      ]
+    },
+    {
+      "file": "app/api/get-access-token/route.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HEYGEN",
+            "HEYGEN",
+            "HEYGEN",
+            "HEYGEN"
+          ],
+          "count": 4,
+          "file": "app/api/get-access-token/route.ts"
+        }
+      ]
+    },
+    {
+      "file": "app/api/prompts/create/route.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen",
+            "HEYGEN",
+            "HEYGEN",
+            "HEYGEN",
+            "HEYGEN",
+            "HEYGEN",
+            "heygen",
+            "HeyGen",
+            "HEYGEN",
+            "HEYGEN",
+            "HeyGen",
+            "HeyGen",
+            "HEYGEN",
+            "HEYGEN",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 18,
+          "file": "app/api/prompts/create/route.ts"
+        }
+      ]
+    },
+    {
+      "file": "app/api/prompts/list/route.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HEYGEN",
+            "HEYGEN",
+            "HEYGEN",
+            "HEYGEN",
+            "HEYGEN",
+            "heygen",
+            "HEYGEN",
+            "HEYGEN",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 12,
+          "file": "app/api/prompts/list/route.ts"
+        }
+      ]
+    },
+    {
+      "file": "app/api/prompts/update/[id]/route.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HEYGEN",
+            "HEYGEN",
+            "HEYGEN",
+            "HEYGEN",
+            "HEYGEN",
+            "heygen",
+            "HeyGen",
+            "HEYGEN",
+            "HEYGEN",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 12,
+          "file": "app/api/prompts/update/[id]/route.ts"
+        }
+      ]
+    },
+    {
+      "file": "app/hooks/usePrompts.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 2,
+          "file": "app/hooks/usePrompts.ts"
+        }
+      ]
+    },
+    {
+      "file": "app/layout.tsx",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 2,
+          "file": "app/layout.tsx"
+        }
+      ]
+    },
+    {
+      "file": "app/lib/constants.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HEYGEN"
+          ],
+          "count": 2,
+          "file": "app/lib/constants.ts"
+        }
+      ]
+    },
+    {
+      "file": "app/lib/prompt-utils.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 4,
+          "file": "app/lib/prompt-utils.ts"
+        }
+      ]
+    },
+    {
+      "file": "app/types/prompt.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 9,
+          "file": "app/types/prompt.ts"
+        }
+      ]
+    },
+    {
+      "file": "changelog.md",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HEYGEN",
+            "HeyGen",
+            "HeyGen",
+            "HEYGEN",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 40,
+          "file": "changelog.md"
+        }
+      ]
+    },
+    {
+      "file": "components/AvatarConfig/index.tsx",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "heygen"
+          ],
+          "count": 1,
+          "file": "components/AvatarConfig/index.tsx"
+        }
+      ]
+    },
+    {
+      "file": "components/AvatarSession/AvatarVideo.tsx",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "heygen"
+          ],
+          "count": 1,
+          "file": "components/AvatarSession/AvatarVideo.tsx"
+        }
+      ]
+    },
+    {
+      "file": "components/AvatarSession/TextInput.tsx",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "heygen"
+          ],
+          "count": 1,
+          "file": "components/AvatarSession/TextInput.tsx"
+        }
+      ]
+    },
+    {
+      "file": "components/InteractiveAvatar.tsx",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "heygen"
+          ],
+          "count": 1,
+          "file": "components/InteractiveAvatar.tsx"
+        }
+      ]
+    },
+    {
+      "file": "components/Prompts/PromptsErrorBoundary.tsx",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen"
+          ],
+          "count": 1,
+          "file": "components/Prompts/PromptsErrorBoundary.tsx"
+        }
+      ]
+    },
+    {
+      "file": "components/Prompts/PromptsManager.tsx",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen"
+          ],
+          "count": 1,
+          "file": "components/Prompts/PromptsManager.tsx"
+        }
+      ]
+    },
+    {
+      "file": "components/logic/context.tsx",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "heygen"
+          ],
+          "count": 1,
+          "file": "components/logic/context.tsx"
+        }
+      ]
+    },
+    {
+      "file": "components/logic/useStreamingAvatarSession.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "heygen"
+          ],
+          "count": 1,
+          "file": "components/logic/useStreamingAvatarSession.ts"
+        }
+      ]
+    },
+    {
+      "file": "components/logic/useTextChat.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "heygen"
+          ],
+          "count": 1,
+          "file": "components/logic/useTextChat.ts"
+        }
+      ]
+    },
+    {
+      "file": "hooks/usePromptsAnalytics.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen"
+          ],
+          "count": 1,
+          "file": "hooks/usePromptsAnalytics.ts"
+        }
+      ]
+    },
+    {
+      "file": "memory-bank/activeContext.md",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HEYGEN"
+          ],
+          "count": 1,
+          "file": "memory-bank/activeContext.md"
+        }
+      ]
+    },
+    {
+      "file": "memory-bank/productContext.md",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 5,
+          "file": "memory-bank/productContext.md"
+        }
+      ]
+    },
+    {
+      "file": "memory-bank/progress.md",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HEYGEN"
+          ],
+          "count": 2,
+          "file": "memory-bank/progress.md"
+        }
+      ]
+    },
+    {
+      "file": "memory-bank/projectbrief.md",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 2,
+          "file": "memory-bank/projectbrief.md"
+        }
+      ]
+    },
+    {
+      "file": "memory-bank/systemPatterns.md",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HEYGEN"
+          ],
+          "count": 1,
+          "file": "memory-bank/systemPatterns.md"
+        }
+      ]
+    },
+    {
+      "file": "memory-bank/techContext.md",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "heygen",
+            "HEYGEN",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 5,
+          "file": "memory-bank/techContext.md"
+        }
+      ]
+    },
+    {
+      "file": "progress.md",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HEYGEN",
+            "HeyGen",
+            "HeyGen",
+            "HEYGEN",
+            "heygen",
+            "heygen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 29,
+          "file": "progress.md"
+        }
+      ]
+    },
+    {
+      "file": "public/sw.js",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "heygen"
+          ],
+          "count": 1,
+          "file": "public/sw.js"
+        }
+      ]
+    },
+    {
+      "file": "store/usePromptsStore.ts",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen"
+          ],
+          "count": 1,
+          "file": "store/usePromptsStore.ts"
+        }
+      ]
+    },
+    {
+      "file": "superdesign/design_iterations/create_an_integratio_1.html",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 2,
+          "file": "superdesign/design_iterations/create_an_integratio_1.html"
+        }
+      ]
+    },
+    {
+      "file": "superdesign/design_iterations/create_an_integratio_2.html",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen"
+          ],
+          "count": 1,
+          "file": "superdesign/design_iterations/create_an_integratio_2.html"
+        }
+      ]
+    },
+    {
+      "file": "superdesign/design_iterations/create_modern_toast__2.html",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen"
+          ],
+          "count": 1,
+          "file": "superdesign/design_iterations/create_modern_toast__2.html"
+        }
+      ]
+    },
+    {
+      "file": "task-list.md",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "heygen",
+            "heygen",
+            "heygen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "heygen",
+            "HEYGEN",
+            "HeyGen",
+            "HeyGen",
+            "heygen",
+            "HEYGEN",
+            "HeyGen",
+            "heygen",
+            "HEYGEN",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 23,
+          "file": "task-list.md"
+        }
+      ]
+    },
+    {
+      "file": "test-audit-simple.js",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "heygen",
+            "heygen",
+            "heygen",
+            "heygen",
+            "heygen",
+            "HeyGen",
+            "HeyGen",
+            "heygen",
+            "HeyGen",
+            "heygen",
+            "heygen",
+            "heygen",
+            "HeyGen",
+            "HeyGen",
+            "heygen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "heygen",
+            "HEYGEN",
+            "heygen",
+            "HEYGEN",
+            "heygen",
+            "heygen",
+            "HeyGen",
+            "heygen",
+            "heygen",
+            "HeyGen",
+            "heygen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "heygen",
+            "heygen",
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 48,
+          "file": "test-audit-simple.js"
+        }
+      ]
+    },
+    {
+      "file": "tests/error-messages-audit.spec.js",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "heygen",
+            "heygen",
+            "heygen",
+            "HeyGen",
+            "heygen",
+            "HeyGen",
+            "HeyGen",
+            "heygen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "HeyGen",
+            "heygen",
+            "HeyGen",
+            "heygen",
+            "heygen",
+            "heygen",
+            "HeyGen",
+            "heygen",
+            "heygen",
+            "HeyGen"
+          ],
+          "count": 28,
+          "file": "tests/error-messages-audit.spec.js"
+        }
+      ]
+    },
+    {
+      "file": "tests/global-setup.js",
+      "matches": [
+        {
+          "pattern": "HeyGen References",
+          "matches": [
+            "HeyGen",
+            "HeyGen"
+          ],
+          "count": 2,
+          "file": "tests/global-setup.js"
+        }
+      ]
+    }
+  ],
+  "maslowReferences": [
+    {
+      "file": "app/lib/error-messages.ts",
+      "matches": [
+        {
+          "pattern": "Maslow AI References",
+          "matches": [
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI"
+          ],
+          "count": 9,
+          "file": "app/lib/error-messages.ts"
+        }
+      ]
+    },
+    {
+      "file": "components/ui/Toast.tsx",
+      "matches": [
+        {
+          "pattern": "Maslow AI References",
+          "matches": [
+            "Maslow AI"
+          ],
+          "count": 1,
+          "file": "components/ui/Toast.tsx"
+        }
+      ]
+    },
+    {
+      "file": "superdesign/design_iterations/create_modern_toast__3.html",
+      "matches": [
+        {
+          "pattern": "Maslow AI References",
+          "matches": [
+            "Maslow AI"
+          ],
+          "count": 1,
+          "file": "superdesign/design_iterations/create_modern_toast__3.html"
+        }
+      ]
+    },
+    {
+      "file": "test-audit-simple.js",
+      "matches": [
+        {
+          "pattern": "Maslow AI References",
+          "matches": [
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "MASLOW AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI"
+          ],
+          "count": 12,
+          "file": "test-audit-simple.js"
+        }
+      ]
+    },
+    {
+      "file": "tests/error-messages-audit.spec.js",
+      "matches": [
+        {
+          "pattern": "Maslow AI References",
+          "matches": [
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI"
+          ],
+          "count": 8,
+          "file": "tests/error-messages-audit.spec.js"
+        }
+      ]
+    },
+    {
+      "file": "tests/global-setup.js",
+      "matches": [
+        {
+          "pattern": "Maslow AI References",
+          "matches": [
+            "Maslow AI",
+            "Maslow AI",
+            "Maslow AI"
+          ],
+          "count": 3,
+          "file": "tests/global-setup.js"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalFiles": 118,
+    "filesWithHeyGen": 38,
+    "filesWithMaslow": 6,
+    "totalHeyGenMatches": 276,
+    "totalMaslowMatches": 34
+  }
+}

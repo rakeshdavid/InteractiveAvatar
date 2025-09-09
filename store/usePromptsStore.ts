@@ -19,6 +19,7 @@ import type {
   PromptCreateResponse,
   PromptUpdateResponse,
 } from '@/app/types/prompt';
+import { ERROR_MESSAGES, getErrorMessageForStatus, isNetworkError, getNetworkErrorMessage } from '@/app/lib/error-messages';
 
 /**
  * Data structure for creating a new prompt
@@ -111,7 +112,7 @@ export const usePromptsStore = create<PromptsStore>()(
             set({ error: 'Invalid request data. Please check your input and try again.' });
             break;
           case 401:
-            set({ error: 'Authentication failed. Please verify your HeyGen API key is valid and active.' });
+            set({ error: ERROR_MESSAGES.AUTH_FAILED });
             break;
           case 403:
             set({ error: 'Access denied. Your API key may not have permission to manage prompts.' });
@@ -127,7 +128,7 @@ export const usePromptsStore = create<PromptsStore>()(
             break;
           case 502:
           case 503:
-            set({ error: 'HeyGen service is temporarily unavailable. Please try again later.' });
+            set({ error: ERROR_MESSAGES.SERVICE_UNAVAILABLE });
             break;
           case 504:
             set({ error: 'Request timed out. Please check your connection and try again.' });
@@ -156,7 +157,7 @@ export const usePromptsStore = create<PromptsStore>()(
       }
       // Handle API key missing
       else if (error instanceof Error && error.message.includes('API key')) {
-        set({ error: 'HeyGen API key is missing or invalid. Please check your configuration.' });
+        set({ error: ERROR_MESSAGES.API_KEY_MISSING });
       }
       // Handle quota/rate limiting
       else if (error instanceof Error && (error.message.includes('quota') || error.message.includes('limit'))) {

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompts Manager - Mobile Integration Mockup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .modal-overlay {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(117, 89, 255, 0.1));
+            backdrop-filter: blur(12px);
+        }
+        .modal-bounce {
+            animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(-50px);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1) translateY(0);
+            }
+            70% {
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .toast-slide-up {
+            animation: slideUpFromBottom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        @keyframes slideUpFromBottom {
+            from {
+                transform: translateY(100%) scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+        .card-pulse:hover {
+            animation: cardPulse 0.6s ease-in-out;
+        }
+        @keyframes cardPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .glass-effect {
+            background: rgba(63, 63, 70, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        .progress-circle {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 70;
+            animation: progressRing 3s ease-in-out;
+        }
+        @keyframes progressRing {
+            from { stroke-dashoffset: 100; }
+            to { stroke-dashoffset: 70; }
+        }
+        .floating-fab {
+            animation: floatingFab 3s ease-in-out infinite;
+        }
+        @keyframes floatingFab {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 min-h-screen">
+    <!-- Mobile-Optimized Header -->
+    <div class="sticky top-0 z-40 bg-zinc-900/95 backdrop-blur-lg border-b border-zinc-700/50">
+        <div class="px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-xl font-bold text-white">Prompts</h1>
+                    <p class="text-sm text-zinc-400">3 active prompts</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="w-10 h-10 bg-zinc-700 hover:bg-zinc-600 rounded-full flex items-center justify-center text-zinc-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 bg-zinc-700 hover:bg-zinc-600 rounded-full flex items-center justify-center text-zinc-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="px-4 py-6 pb-24">
+        <!-- Stats Cards Row -->
+        <div class="grid grid-cols-3 gap-3 mb-6">
+            <div class="bg-zinc-800/60 backdrop-blur-lg border border-zinc-700/50 rounded-xl p-4 text-center">
+                <div class="text-2xl font-bold text-white">3</div>
+                <div class="text-xs text-zinc-400">Active</div>
+            </div>
+            <div class="bg-zinc-800/60 backdrop-blur-lg border border-zinc-700/50 rounded-xl p-4 text-center">
+                <div class="text-2xl font-bold text-green-400">98%</div>
+                <div class="text-xs text-zinc-400">Success</div>
+            </div>
+            <div class="bg-zinc-800/60 backdrop-blur-lg border border-zinc-700/50 rounded-xl p-4 text-center">
+                <div class="text-2xl font-bold text-purple-400">847</div>
+                <div class="text-xs text-zinc-400">Sessions</div>
+            </div>
+        </div>
+        
+        <!-- Prompts List -->
+        <div class="space-y-4">
+            <!-- Featured Prompt Card -->
+            <div class="glass-effect rounded-2xl p-5 card-pulse transition-all duration-300 border-l-4 border-purple-500">
+                <div class="flex items-start space-x-4">
+                    <div class="relative flex-shrink-0">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute -top-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-zinc-900 flex items-center justify-center">
+                            <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-bold text-white">Therapist Helper</h3>
+                            <span class="text-xs bg-purple-600/30 text-purple-300 px-2 py-1 rounded-full border border-purple-500/30">
+                                Editing
+                            </span>
+                        </div>
+                        <p class="text-sm text-zinc-300 mb-3 leading-relaxed">
+                            "Hello! I'm here to listen and provide professional support..."
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="text-sm text-zinc-400">
+                                    <span class="font-medium text-white">1.2k</span> sessions
+                                </div>
+                                <div class="w-1 h-4 bg-zinc-600 rounded-full"></div>
+                                <div class="text-sm text-zinc-400">
+                                    <span class="font-medium text-green-400">4.9</span> rating
+                                </div>
+                            </div>
+                            
+                            <button class="w-10 h-10 bg-purple-600 hover:bg-purple-700 rounded-xl flex items-center justify-center text-white transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Compact Prompt Cards -->
+            <div class="bg-zinc-800/60 backdrop-blur-lg border border-zinc-700/50 rounded-xl p-4 card-pulse transition-all duration-300">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-base font-semibold text-white mb-1">Santa Helper</h4>
+                        <p class="text-sm text-zinc-400">Ho ho ho! What can Santa help you with?</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <span class="text-xs bg-red-900/30 text-red-300 px-2 py-1 rounded-full">Holiday</span>
+                            <span class="text-xs text-zinc-500">•</span>
+                            <span class="text-xs text-zinc-500">Updated 1d ago</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-8 h-8 bg-zinc-700 hover:bg-purple-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-colors flex-shrink-0">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="bg-zinc-800/60 backdrop-blur-lg border border-zinc-700/50 rounded-xl p-4 card-pulse transition-all duration-300">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-base font-semibold text-white mb-1">Sports Buddy</h4>
+                        <p class="text-sm text-zinc-400">Hey there, sports fan! Ready to talk games?</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <span class="text-xs bg-blue-900/30 text-blue-300 px-2 py-1 rounded-full">Sports</span>
+                            <span class="text-xs text-zinc-500">•</span>
+                            <span class="text-xs text-zinc-500">Updated 3h ago</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-8 h-8 bg-zinc-700 hover:bg-purple-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-colors flex-shrink-0">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="floating-fab w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white shadow-2xl hover:shadow-purple-500/25 transition-all hover:scale-105">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Modal Overlay -->
+    <div class="modal-overlay fixed inset-0 flex items-end sm:items-center justify-center p-4 z-50">
+        <!-- Mobile-Optimized Modal -->
+        <div class="glass-effect rounded-t-2xl sm:rounded-2xl shadow-2xl w-full max-w-lg modal-bounce relative overflow-hidden">
+            <!-- Decorative gradient line -->
+            <div class="h-1 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600"></div>
+            
+            <!-- Header -->
+            <div class="px-6 py-5 border-b border-zinc-600/50">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-xl font-bold text-white">Edit Prompt</h2>
+                        <p class="text-sm text-zinc-400 mt-1">Therapist Helper</p>
+                    </div>
+                    <button class="w-10 h-10 bg-zinc-700 hover:bg-zinc-600 rounded-full flex items-center justify-center text-zinc-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="px-6 py-5 max-h-96 overflow-y-auto">
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-zinc-300 mb-2">Name</label>
+                        <input type="text" value="Therapist Helper" class="w-full bg-zinc-600/50 border border-zinc-500/50 rounded-xl px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:border-purple-500 focus:bg-zinc-600/70 transition-all">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-zinc-300 mb-2">Opening Line</label>
+                        <input type="text" value="Hello! I'm here to listen and provide support." class="w-full bg-zinc-600/50 border border-zinc-500/50 rounded-xl px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:border-purple-500 focus:bg-zinc-600/70 transition-all">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-zinc-300 mb-2">Instructions</label>
+                        <textarea rows="4" class="w-full bg-zinc-600/50 border border-zinc-500/50 rounded-xl px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:border-purple-500 focus:bg-zinc-600/70 transition-all resize-none">You are a therapeutic AI assistant with professional training. Provide empathetic, supportive responses while maintaining appropriate boundaries.</textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="px-6 py-5 bg-zinc-800/50 border-t border-zinc-600/50 flex justify-end space-x-3">
+                <button class="px-6 py-3 text-sm font-medium text-zinc-300 hover:text-white bg-zinc-700/50 hover:bg-zinc-600 rounded-xl transition-colors">
+                    Cancel
+                </button>
+                <button class="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-xl text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-transparent shadow-lg min-h-[44px]">
+                    Save Changes
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notifications (Bottom Center) -->
+    <div class="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-50 space-y-3 max-w-sm w-full px-4">
+        <!-- Success Toast with Progress Ring -->
+        <div class="glass-effect rounded-2xl shadow-2xl toast-slide-up">
+            <div class="p-4 flex items-center space-x-4">
+                <div class="relative flex-shrink-0">
+                    <svg class="progress-ring w-12 h-12" viewBox="0 0 36 36">
+                        <circle cx="18" cy="18" r="16" fill="none" stroke="rgba(34, 197, 94, 0.2)" stroke-width="2"/>
+                        <circle cx="18" cy="18" r="16" fill="none" stroke="#22c55e" stroke-width="2" class="progress-circle"/>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex-1 min-w-0">
+                    <h4 class="text-base font-semibold text-white mb-1">Changes saved!</h4>
+                    <p class="text-sm text-zinc-400">Your prompt is now updated and ready to use</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sync Toast -->
+        <div class="glass-effect rounded-2xl shadow-2xl toast-slide-up" style="animation-delay: 0.2s;">
+            <div class="p-4 flex items-center space-x-3">
+                <div class="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div class="w-5 h-5 border-2 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm text-white font-medium">Syncing with HeyGen...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

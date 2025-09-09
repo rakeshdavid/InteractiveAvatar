@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     siteName: "Interactive AI Avatar Playground",
     images: [
       {
-        url: "/demo.png",
+        url: "/RivalistaDemo.png",
         width: 1200,
         height: 800,
-        alt: "Interactive AI Avatar Playground",
+        alt: "Interactive AI Avatar Demo - Choose Your Avatar",
       },
     ],
   },
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Interactive AI Avatar Playground",
     description: "AI Avatar Interactive Experience - Chat with realistic AI avatars",
-    images: ["/demo.png"],
+    images: ["/RivalistaDemo.png"],
   },
 };
 

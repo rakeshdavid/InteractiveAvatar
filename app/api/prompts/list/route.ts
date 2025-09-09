@@ -7,6 +7,7 @@ import {
   createErrorResponse,
   createSuccessResponse,
 } from "@/app/lib/prompt-utils";
+import { ERROR_MESSAGES } from "@/app/lib/error-messages";
 import { HEYGEN_API_ENDPOINTS } from "@/app/lib/constants";
 
 const HEYGEN_API_KEY = process.env.HEYGEN_API_KEY;
@@ -44,7 +45,7 @@ export async function GET() {
         return createErrorResponse("Endpoint not found", 404);
       }
 
-      return createErrorResponse("Failed to fetch prompts from HeyGen", response.status);
+      return createErrorResponse(ERROR_MESSAGES.FETCH_PROMPTS_FAILED, response.status);
     }
 
     const data: HeyGenListAPIResponse = await response.json();
@@ -61,7 +62,7 @@ export async function GET() {
 
     // Check if it's a network error
     if (error instanceof TypeError && error.message.includes("fetch")) {
-      return createErrorResponse("Network error connecting to HeyGen API", 503);
+      return createErrorResponse(ERROR_MESSAGES.NETWORK_ERROR, 503);
     }
 
     return createErrorResponse("Internal server error", 500);

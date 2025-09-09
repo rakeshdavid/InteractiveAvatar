@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Gallery - Variation 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            primary: '#7559FF',
+                            light: '#9B7EFF',
+                            dark: '#5A42CC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .avatar-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        .avatar-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+        .selected-card {
+            background: linear-gradient(135deg, rgba(117, 89, 255, 0.2) 0%, rgba(117, 89, 255, 0.1) 100%);
+            border: 2px solid #7559FF;
+            box-shadow: 0 8px 32px rgba(117, 89, 255, 0.3);
+        }
+        .card-shine {
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+        }
+        .badge-glow {
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+        }
+        .badge-popular-glow {
+            box-shadow: 0 0 12px rgba(249, 115, 22, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-black text-white p-8">
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="mb-10">
+            <h3 class="text-3xl font-bold text-zinc-100 mb-3">Choose Your Avatar</h3>
+            <p class="text-lg text-zinc-400">Select from our collection of specialized AI personalities</p>
+        </div>
+
+        <!-- Avatar Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Avatar Card 1 - Selected -->
+            <div class="avatar-card cursor-pointer group">
+                <div class="selected-card rounded-3xl p-6 relative overflow-hidden">
+                    <!-- Shine Effect -->
+                    <div class="absolute inset-0 card-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <!-- Avatar Image -->
+                        <div class="relative w-full aspect-square rounded-2xl mb-4 overflow-hidden bg-gradient-to-br from-purple-600 to-purple-800 ring-2 ring-purple-primary">
+                            <div class="w-full h-full flex items-center justify-center text-3xl font-bold text-white">
+                                S
+                            </div>
+                            <!-- NEW Badge -->
+                            <div class="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full badge-glow">
+                                NEW
+                            </div>
+                        </div>
+                        
+                        <!-- Avatar Name -->
+                        <div class="text-center">
+                            <p class="text-base font-semibold text-white mb-1">Santa Assistant</p>
+                            <p class="text-xs text-purple-light">Holiday Expert</p>
+                        </div>
+                        
+                        <!-- Selection Check -->
+                        <div class="absolute top-2 left-2 w-8 h-8 bg-purple-primary rounded-full flex items-center justify-center ring-2 ring-white">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 2 -->
+            <div class="avatar-card cursor-pointer group">
+                <div class="bg-zinc-900 rounded-3xl p-6 border border-zinc-700 hover:border-zinc-500 relative overflow-hidden">
+                    <!-- Shine Effect -->
+                    <div class="absolute inset-0 card-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <!-- Avatar Image -->
+                        <div class="relative w-full aspect-square rounded-2xl mb-4 overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800">
+                            <div class="w-full h-full flex items-center justify-center text-3xl font-bold text-white">
+                                T
+                            </div>
+                            <!-- POPULAR Badge -->
+                            <div class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full badge-popular-glow">
+                                POPULAR
+                            </div>
+                        </div>
+                        
+                        <!-- Avatar Name -->
+                        <div class="text-center">
+                            <p class="text-base font-semibold text-zinc-300 group-hover:text-white mb-1">Therapy Guide</p>
+                            <p class="text-xs text-zinc-500 group-hover:text-zinc-400">Mental Health</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 3 -->
+            <div class="avatar-card cursor-pointer group">
+                <div class="bg-zinc-900 rounded-3xl p-6 border border-zinc-700 hover:border-zinc-500 relative overflow-hidden">
+                    <!-- Shine Effect -->
+                    <div class="absolute inset-0 card-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <!-- Avatar Image -->
+                        <div class="relative w-full aspect-square rounded-2xl mb-4 overflow-hidden bg-gradient-to-br from-green-600 to-green-800">
+                            <div class="w-full h-full flex items-center justify-center text-3xl font-bold text-white">
+                                S
+                            </div>
+                        </div>
+                        
+                        <!-- Avatar Name -->
+                        <div class="text-center">
+                            <p class="text-base font-semibold text-zinc-300 group-hover:text-white mb-1">Sports Analyst</p>
+                            <p class="text-xs text-zinc-500 group-hover:text-zinc-400">Sports Expert</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 4 -->
+            <div class="avatar-card cursor-pointer group">
+                <div class="bg-zinc-900 rounded-3xl p-6 border border-zinc-700 hover:border-zinc-500 relative overflow-hidden">
+                    <!-- Shine Effect -->
+                    <div class="absolute inset-0 card-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <!-- Avatar Image -->
+                        <div class="relative w-full aspect-square rounded-2xl mb-4 overflow-hidden bg-gradient-to-br from-pink-600 to-pink-800">
+                            <div class="w-full h-full flex items-center justify-center text-3xl font-bold text-white">
+                                M
+                            </div>
+                        </div>
+                        
+                        <!-- Avatar Name -->
+                        <div class="text-center">
+                            <p class="text-base font-semibold text-zinc-300 group-hover:text-white mb-1">Marketing Expert</p>
+                            <p class="text-xs text-zinc-500 group-hover:text-zinc-400">Business Growth</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 5 -->
+            <div class="avatar-card cursor-pointer group">
+                <div class="bg-zinc-900 rounded-3xl p-6 border border-zinc-700 hover:border-zinc-500 relative overflow-hidden">
+                    <!-- Shine Effect -->
+                    <div class="absolute inset-0 card-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <!-- Avatar Image -->
+                        <div class="relative w-full aspect-square rounded-2xl mb-4 overflow-hidden bg-gradient-to-br from-yellow-600 to-yellow-800">
+                            <div class="w-full h-full flex items-center justify-center text-3xl font-bold text-white">
+                                C
+                            </div>
+                            <!-- NEW Badge -->
+                            <div class="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full badge-glow">
+                                NEW
+                            </div>
+                        </div>
+                        
+                        <!-- Avatar Name -->
+                        <div class="text-center">
+                            <p class="text-base font-semibold text-zinc-300 group-hover:text-white mb-1">Creative Writer</p>
+                            <p class="text-xs text-zinc-500 group-hover:text-zinc-400">Content Creation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 6 -->
+            <div class="avatar-card cursor-pointer group">
+                <div class="bg-zinc-900 rounded-3xl p-6 border border-zinc-700 hover:border-zinc-500 relative overflow-hidden">
+                    <!-- Shine Effect -->
+                    <div class="absolute inset-0 card-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <!-- Avatar Image -->
+                        <div class="relative w-full aspect-square rounded-2xl mb-4 overflow-hidden bg-gradient-to-br from-indigo-600 to-indigo-800">
+                            <div class="w-full h-full flex items-center justify-center text-3xl font-bold text-white">
+                                B
+                            </div>
+                        </div>
+                        
+                        <!-- Avatar Name -->
+                        <div class="text-center">
+                            <p class="text-base font-semibold text-zinc-300 group-hover:text-white mb-1">Business Coach</p>
+                            <p class="text-xs text-zinc-500 group-hover:text-zinc-400">Leadership</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 7 -->
+            <div class="avatar-card cursor-pointer group">
+                <div class="bg-zinc-900 rounded-3xl p-6 border border-zinc-700 hover:border-zinc-500 relative overflow-hidden">
+                    <!-- Shine Effect -->
+                    <div class="absolute inset-0 card-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <!-- Avatar Image -->
+                        <div class="relative w-full aspect-square rounded-2xl mb-4 overflow-hidden bg-gradient-to-br from-red-600 to-red-800">
+                            <div class="w-full h-full flex items-center justify-center text-3xl font-bold text-white">
+                                F
+                            </div>
+                            <!-- POPULAR Badge -->
+                            <div class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full badge-popular-glow">
+                                POPULAR
+                            </div>
+                        </div>
+                        
+                        <!-- Avatar Name -->
+                        <div class="text-center">
+                            <p class="text-base font-semibold text-zinc-300 group-hover:text-white mb-1">Fitness Trainer</p>
+                            <p class="text-xs text-zinc-500 group-hover:text-zinc-400">Health & Wellness</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 8 -->
+            <div class="avatar-card cursor-pointer group">
+                <div class="bg-zinc-900 rounded-3xl p-6 border border-zinc-700 hover:border-zinc-500 relative overflow-hidden">
+                    <!-- Shine Effect -->
+                    <div class="absolute inset-0 card-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <!-- Avatar Image -->
+                        <div class="relative w-full aspect-square rounded-2xl mb-4 overflow-hidden bg-gradient-to-br from-teal-600 to-teal-800">
+                            <div class="w-full h-full flex items-center justify-center text-3xl font-bold text-white">
+                                L
+                            </div>
+                        </div>
+                        
+                        <!-- Avatar Name -->
+                        <div class="text-center">
+                            <p class="text-base font-semibold text-zinc-300 group-hover:text-white mb-1">Language Tutor</p>
+                            <p class="text-xs text-zinc-500 group-hover:text-zinc-400">Education</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

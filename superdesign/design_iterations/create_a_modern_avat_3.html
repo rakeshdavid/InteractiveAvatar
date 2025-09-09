@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Gallery - Variation 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            primary: '#7559FF',
+                            light: '#9B7EFF',
+                            dark: '#5A42CC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .avatar-card {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+        }
+        .avatar-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .selected-card {
+            background: linear-gradient(135deg, rgba(117, 89, 255, 0.15) 0%, rgba(117, 89, 255, 0.05) 100%);
+            border: 2px solid #7559FF;
+            transform: translateY(-4px);
+        }
+        .selected-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #7559FF, #9B7EFF, #7559FF);
+            border-radius: 24px;
+            z-index: -1;
+            opacity: 0.3;
+            filter: blur(8px);
+        }
+        .badge-new {
+            background: linear-gradient(135deg, #10B981, #059669);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+        .badge-popular {
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+        }
+        .glass-border {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-black text-white p-8">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="mb-12 text-center">
+            <h3 class="text-4xl font-bold text-zinc-100 mb-4">Choose Your Avatar</h3>
+            <p class="text-xl text-zinc-400 max-w-2xl mx-auto">Select from our curated collection of AI personalities, each specialized in different domains</p>
+        </div>
+
+        <!-- Avatar Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Avatar Card 1 - Selected -->
+            <div class="avatar-card selected-card rounded-3xl p-5 border-2 border-purple-primary relative cursor-pointer group">
+                <div class="relative z-10">
+                    <!-- Avatar Image -->
+                    <div class="relative w-full aspect-[4/3] rounded-2xl mb-4 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-red-500 via-red-600 to-red-700 flex items-center justify-center text-2xl font-bold text-white shadow-inner">
+                            S
+                        </div>
+                        <!-- NEW Badge -->
+                        <div class="absolute top-3 right-3 badge-new text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                            NEW
+                        </div>
+                        <!-- Selection Ring -->
+                        <div class="absolute inset-0 rounded-2xl ring-2 ring-purple-primary ring-offset-2 ring-offset-black"></div>
+                    </div>
+                    
+                    <!-- Avatar Info -->
+                    <div class="text-center">
+                        <h4 class="text-lg font-semibold text-white mb-1">Santa Assistant</h4>
+                        <p class="text-sm text-purple-light font-medium">Holiday Expert</p>
+                        <div class="mt-3 flex items-center justify-center">
+                            <div class="w-2 h-2 bg-purple-primary rounded-full mr-2"></div>
+                            <span class="text-xs text-purple-light">Selected</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 2 -->
+            <div class="avatar-card rounded-3xl p-5 glass-border cursor-pointer group">
+                <div class="relative z-10">
+                    <!-- Avatar Image -->
+                    <div class="relative w-full aspect-[4/3] rounded-2xl mb-4 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 flex items-center justify-center text-2xl font-bold text-white shadow-inner">
+                            T
+                        </div>
+                        <!-- POPULAR Badge -->
+                        <div class="absolute top-3 left-3 badge-popular text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                            POPULAR
+                        </div>
+                    </div>
+                    
+                    <!-- Avatar Info -->
+                    <div class="text-center">
+                        <h4 class="text-lg font-semibold text-zinc-300 group-hover:text-white mb-1">Therapy Guide</h4>
+                        <p class="text-sm text-zinc-500 group-hover:text-zinc-400 font-medium">Mental Health</p>
+                        <div class="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-xs text-zinc-500">Click to select</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 3 -->
+            <div class="avatar-card rounded-3xl p-5 glass-border cursor-pointer group">
+                <div class="relative z-10">
+                    <!-- Avatar Image -->
+                    <div class="relative w-full aspect-[4/3] rounded-2xl mb-4 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-green-500 via-green-600 to-green-700 flex items-center justify-center text-2xl font-bold text-white shadow-inner">
+                            S
+                        </div>
+                    </div>
+                    
+                    <!-- Avatar Info -->
+                    <div class="text-center">
+                        <h4 class="text-lg font-semibold text-zinc-300 group-hover:text-white mb-1">Sports Analyst</h4>
+                        <p class="text-sm text-zinc-500 group-hover:text-zinc-400 font-medium">Sports Expert</p>
+                        <div class="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-xs text-zinc-500">Click to select</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 4 -->
+            <div class="avatar-card rounded-3xl p-5 glass-border cursor-pointer group">
+                <div class="relative z-10">
+                    <!-- Avatar Image -->
+                    <div class="relative w-full aspect-[4/3] rounded-2xl mb-4 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 flex items-center justify-center text-2xl font-bold text-white shadow-inner">
+                            M
+                        </div>
+                    </div>
+                    
+                    <!-- Avatar Info -->
+                    <div class="text-center">
+                        <h4 class="text-lg font-semibold text-zinc-300 group-hover:text-white mb-1">Marketing Expert</h4>
+                        <p class="text-sm text-zinc-500 group-hover:text-zinc-400 font-medium">Business Growth</p>
+                        <div class="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-xs text-zinc-500">Click to select</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 5 -->
+            <div class="avatar-card rounded-3xl p-5 glass-border cursor-pointer group">
+                <div class="relative z-10">
+                    <!-- Avatar Image -->
+                    <div class="relative w-full aspect-[4/3] rounded-2xl mb-4 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-yellow-500 via-yellow-600 to-yellow-700 flex items-center justify-center text-2xl font-bold text-white shadow-inner">
+                            C
+                        </div>
+                        <!-- NEW Badge -->
+                        <div class="absolute top-3 right-3 badge-new text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                            NEW
+                        </div>
+                    </div>
+                    
+                    <!-- Avatar Info -->
+                    <div class="text-center">
+                        <h4 class="text-lg font-semibold text-zinc-300 group-hover:text-white mb-1">Creative Writer</h4>
+                        <p class="text-sm text-zinc-500 group-hover:text-zinc-400 font-medium">Content Creation</p>
+                        <div class="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-xs text-zinc-500">Click to select</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 6 -->
+            <div class="avatar-card rounded-3xl p-5 glass-border cursor-pointer group">
+                <div class="relative z-10">
+                    <!-- Avatar Image -->
+                    <div class="relative w-full aspect-[4/3] rounded-2xl mb-4 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 flex items-center justify-center text-2xl font-bold text-white shadow-inner">
+                            B
+                        </div>
+                    </div>
+                    
+                    <!-- Avatar Info -->
+                    <div class="text-center">
+                        <h4 class="text-lg font-semibold text-zinc-300 group-hover:text-white mb-1">Business Coach</h4>
+                        <p class="text-sm text-zinc-500 group-hover:text-zinc-400 font-medium">Leadership</p>
+                        <div class="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-xs text-zinc-500">Click to select</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 7 -->
+            <div class="avatar-card rounded-3xl p-5 glass-border cursor-pointer group">
+                <div class="relative z-10">
+                    <!-- Avatar Image -->
+                    <div class="relative w-full aspect-[4/3] rounded-2xl mb-4 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-pink-500 via-pink-600 to-pink-700 flex items-center justify-center text-2xl font-bold text-white shadow-inner">
+                            F
+                        </div>
+                        <!-- POPULAR Badge -->
+                        <div class="absolute top-3 left-3 badge-popular text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                            POPULAR
+                        </div>
+                    </div>
+                    
+                    <!-- Avatar Info -->
+                    <div class="text-center">
+                        <h4 class="text-lg font-semibold text-zinc-300 group-hover:text-white mb-1">Fitness Trainer</h4>
+                        <p class="text-sm text-zinc-500 group-hover:text-zinc-400 font-medium">Health & Wellness</p>
+                        <div class="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-xs text-zinc-500">Click to select</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card 8 -->
+            <div class="avatar-card rounded-3xl p-5 glass-border cursor-pointer group">
+                <div class="relative z-10">
+                    <!-- Avatar Image -->
+                    <div class="relative w-full aspect-[4/3] rounded-2xl mb-4 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-teal-500 via-teal-600 to-teal-700 flex items-center justify-center text-2xl font-bold text-white shadow-inner">
+                            L
+                        </div>
+                    </div>
+                    
+                    <!-- Avatar Info -->
+                    <div class="text-center">
+                        <h4 class="text-lg font-semibold text-zinc-300 group-hover:text-white mb-1">Language Tutor</h4>
+                        <p class="text-sm text-zinc-500 group-hover:text-zinc-400 font-medium">Education</p>
+                        <div class="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-xs text-zinc-500">Click to select</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

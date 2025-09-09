@@ -1,8 +1,97 @@
 {
+  "name": "Interactive AI Avatar Project MCP Configuration",
+  "description": "MCP servers for the Interactive AI Avatar Project",
   "mcpServers": {
-    "byterover-mcp": {
-      "type": "http",
-      "url": "https://mcp.byterover.dev/mcp?machineId=1f060b7e-5c59-6be0-b1a2-3b0b917162ab"
+    "superdesign": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Users/kesh/Documents/Github -Local/superdesign-mcp-claude-code/dist/index.js"
+      ],
+      "env": {},
+      "_comment": "UI/UX design generation for frontend development"
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp"
+      ],
+      "env": {},
+      "_comment": "Browser automation for UI verification and testing"
+    },
+    "byterover": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "byterover-mcp"
+      ],
+      "env": {},
+      "_comment": "Memory layer to remember context and previous decisions"
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {},
+      "_comment": "Documentation lookup and context management"
+    },
+    "vercel": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@vercel/mcp-adapter"
+      ],
+      "env": {},
+      "_comment": "Deployment and infrastructure management"
+    },
+    "serena": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server"
+      ],
+      "env": {},
+      "_comment": "Semantic code retrieval and editing capabilities for advanced code analysis"
+    },
+    "gitbutler": {
+      "type": "stdio",
+      "command": "but",
+      "args": [
+        "mcp"
+      ],
+      "env": {},
+      "_comment": "GitButler integration for branch management and automated commits"
+    },
+    "archon": {
+      "name": "archon",
+      "transport": "http",
+      "url": "http://localhost:8051/mcp",
+      "_comment": "Archon MCP server for advanced development capabilities"
+    },
+    "shadcn": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "shadcn@latest",
+        "mcp"
+      ],
+      "env": {},
+      "_comment": "shadcn/ui component registry and management"
     }
+  },
+  "_notes": {
+    "setup": "To use these MCP servers, ensure Claude CLI is installed: npm install -g @anthropic/claude-cli",
+    "requirements": "Serena requires 'uv' and 'uvx' to be installed for Python package management",
+    "usage": "These servers will be automatically available when working in this project directory"
   }
 }

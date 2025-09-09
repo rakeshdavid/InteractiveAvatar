@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Component - Variation 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        .modal-enter {
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .close-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 min-h-screen flex items-center justify-center p-4">
+    <!-- Modal Overlay -->
+    <div class="modal-overlay fixed inset-0 flex items-center justify-center p-4 z-50">
+        <!-- Modal Container -->
+        <div class="bg-zinc-700 rounded-lg shadow-2xl w-full max-w-md modal-enter relative">
+            <!-- Close Button -->
+            <button class="close-button absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-zinc-400 hover:text-white transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-zinc-600">
+                <h2 class="text-xl font-semibold text-white">Manage Prompts</h2>
+                <p class="text-sm text-zinc-400 mt-1">Create and manage your conversation prompts</p>
+            </div>
+            
+            <!-- Content -->
+            <div class="px-6 py-4">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-white mb-2">Prompt Name</label>
+                        <input type="text" class="w-full bg-zinc-600 border border-zinc-500 rounded-lg px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter prompt name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-white mb-2">Description</label>
+                        <textarea class="w-full bg-zinc-600 border border-zinc-500 rounded-lg px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent h-24 resize-none" placeholder="Enter prompt description"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="px-6 py-4 bg-zinc-800 rounded-b-lg flex justify-end space-x-3">
+                <button class="px-4 py-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors">
+                    Cancel
+                </button>
+                <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-800 min-h-[44px]">
+                    Create Prompt
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

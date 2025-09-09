@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Manager Modal - Variation 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            primary: '#7559FF',
+                            light: '#9B7EFF',
+                            dark: '#5A42CC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .modal-backdrop {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .modal-content {
+            background: rgba(31, 41, 55, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .tab-active {
+            background: linear-gradient(135deg, #7559FF, #9B7EFF);
+            box-shadow: 0 4px 12px rgba(117, 89, 255, 0.3);
+        }
+        .glass-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .glass-input:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #7559FF;
+            box-shadow: 0 0 0 2px rgba(117, 89, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-black text-white flex items-center justify-center min-h-screen p-4">
+    <!-- Modal Backdrop -->
+    <div class="modal-backdrop fixed inset-0 flex items-center justify-center z-50">
+        <!-- Modal Content -->
+        <div class="modal-content w-full max-w-3xl rounded-2xl shadow-2xl animate-in">
+            <!-- Header -->
+            <div class="px-8 py-6 border-b border-zinc-700">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white mb-2">Manage Prompts</h2>
+                        <p class="text-zinc-400">Create, edit, and organize your avatar prompts and instructions</p>
+                    </div>
+                    <button class="w-10 h-10 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-600 flex items-center justify-center transition-colors">
+                        <svg class="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="px-8 py-4 border-b border-zinc-700">
+                <div class="flex space-x-2">
+                    <button class="tab-active px-6 py-3 rounded-xl text-white font-medium transition-all">
+                        All Prompts
+                    </button>
+                    <button class="px-6 py-3 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">
+                        Create New
+                    </button>
+                    <button class="px-6 py-3 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">
+                        Edit
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="px-8 py-6 max-h-96 overflow-y-auto">
+                <!-- Prompts List -->
+                <div class="space-y-4">
+                    <!-- Prompt Item 1 -->
+                    <div class="glass-input rounded-xl p-6 border hover:border-purple-primary/30 transition-all group">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-white mb-2">Santa Assistant</h3>
+                                <p class="text-zinc-400 text-sm mb-3">A cheerful holiday assistant that helps with Christmas planning, gift ideas, and spreading festive joy.</p>
+                                <div class="flex items-center space-x-4 text-xs text-zinc-500">
+                                    <span>Created Dec 1, 2024</span>
+                                    <span>•</span>
+                                    <span>Last modified 2 days ago</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button class="px-3 py-1.5 text-xs bg-purple-primary hover:bg-purple-dark text-white rounded-lg transition-colors">
+                                    Edit
+                                </button>
+                                <button class="px-3 py-1.5 text-xs bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prompt Item 2 -->
+                    <div class="glass-input rounded-xl p-6 border hover:border-purple-primary/30 transition-all group">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-white mb-2">Therapy Guide</h3>
+                                <p class="text-zinc-400 text-sm mb-3">A supportive mental health companion that provides guidance for mindfulness and emotional well-being.</p>
+                                <div class="flex items-center space-x-4 text-xs text-zinc-500">
+                                    <span>Created Nov 28, 2024</span>
+                                    <span>•</span>
+                                    <span>Last modified 1 week ago</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button class="px-3 py-1.5 text-xs bg-purple-primary hover:bg-purple-dark text-white rounded-lg transition-colors">
+                                    Edit
+                                </button>
+                                <button class="px-3 py-1.5 text-xs bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prompt Item 3 -->
+                    <div class="glass-input rounded-xl p-6 border hover:border-purple-primary/30 transition-all group">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-white mb-2">Sports Analyst</h3>
+                                <p class="text-zinc-400 text-sm mb-3">Expert sports commentator with deep knowledge of basketball, providing insights and predictions.</p>
+                                <div class="flex items-center space-x-4 text-xs text-zinc-500">
+                                    <span>Created Nov 25, 2024</span>
+                                    <span>•</span>
+                                    <span>Last modified 3 days ago</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button class="px-3 py-1.5 text-xs bg-purple-primary hover:bg-purple-dark text-white rounded-lg transition-colors">
+                                    Edit
+                                </button>
+                                <button class="px-3 py-1.5 text-xs bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="px-8 py-6 border-t border-zinc-700 bg-zinc-800/50 rounded-b-2xl">
+                <div class="flex items-center justify-between">
+                    <div class="text-sm text-zinc-400">
+                        Manage your avatar prompts and conversation starters
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <button class="px-6 py-2.5 bg-purple-primary hover:bg-purple-dark text-white font-medium rounded-xl transition-colors">
+                            New Prompt
+                        </button>
+                        <button class="px-6 py-2.5 bg-zinc-700 hover:bg-zinc-600 text-zinc-300 hover:text-white border border-zinc-600 font-medium rounded-xl transition-colors">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

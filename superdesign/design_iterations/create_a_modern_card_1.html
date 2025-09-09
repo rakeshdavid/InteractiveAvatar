@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Component - Variation 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .card-selected {
+            border-color: #7559FF;
+            box-shadow: 0 0 0 2px rgba(117, 89, 255, 0.2);
+        }
+        .loading-shimmer {
+            background: linear-gradient(90deg, #3f3f46 25%, #52525b 50%, #3f3f46 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 min-h-screen p-8">
+    <div class="max-w-4xl mx-auto space-y-6">
+        <!-- Normal State Card -->
+        <div class="bg-zinc-700 border border-zinc-600 rounded-lg p-6 card-hover transition-all duration-200 relative">
+            <!-- Status Indicator -->
+            <div class="absolute top-4 right-4 flex items-center space-x-2">
+                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span class="text-xs text-green-400 font-medium">Active</span>
+            </div>
+            
+            <!-- Header -->
+            <div class="mb-4">
+                <h3 class="text-lg font-semibold text-white mb-1">Therapist Assistant</h3>
+                <p class="text-sm text-zinc-400">Sassy therapeutic assistant with attitude</p>
+            </div>
+            
+            <!-- Content -->
+            <div class="mb-4 space-y-2">
+                <div class="flex items-center text-sm text-zinc-300">
+                    <svg class="w-4 h-4 mr-2 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                    <span>Opening: "Hello! I'm here to listen and help."</span>
+                </div>
+                <div class="flex items-center text-sm text-zinc-300">
+                    <svg class="w-4 h-4 mr-2 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Updated 2 hours ago</span>
+                </div>
+            </div>
+            
+            <!-- Actions -->
+            <div class="flex items-center justify-between">
+                <div class="flex space-x-2">
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-purple-900/30 text-purple-300 border border-purple-700/30">
+                        Personality
+                    </span>
+                </div>
+                
+                <div class="flex items-center space-x-2">
+                    <button class="w-8 h-8 rounded-lg bg-zinc-600 hover:bg-purple-600 flex items-center justify-center text-zinc-400 hover:text-white transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                        </svg>
+                    </button>
+                    <button class="w-8 h-8 rounded-lg bg-zinc-600 hover:bg-red-600 flex items-center justify-center text-zinc-400 hover:text-white transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Selected State Card -->
+        <div class="bg-zinc-700 border border-purple-500 rounded-lg p-6 card-selected transition-all duration-200 relative">
+            <!-- Status Indicator -->
+            <div class="absolute top-4 right-4 flex items-center space-x-2">
+                <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                <span class="text-xs text-purple-400 font-medium">Selected</span>
+            </div>
+            
+            <!-- Header -->
+            <div class="mb-4">
+                <h3 class="text-lg font-semibold text-white mb-1">Santa Helper</h3>
+                <p class="text-sm text-zinc-400">Festive Santa with mischievous personality</p>
+            </div>
+            
+            <!-- Content -->
+            <div class="mb-4 space-y-2">
+                <div class="flex items-center text-sm text-zinc-300">
+                    <svg class="w-4 h-4 mr-2 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                    <span>Opening: "Ho ho ho! What can Santa help you with?"</span>
+                </div>
+                <div class="flex items-center text-sm text-zinc-300">
+                    <svg class="w-4 h-4 mr-2 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Updated 1 day ago</span>
+                </div>
+            </div>
+            
+            <!-- Actions -->
+            <div class="flex items-center justify-between">
+                <div class="flex space-x-2">
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-900/30 text-red-300 border border-red-700/30">
+                        Festive
+                    </span>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-900/30 text-green-300 border border-green-700/30">
+                        Holiday
+                    </span>
+                </div>
+                
+                <div class="flex items-center space-x-2">
+                    <button class="w-8 h-8 rounded-lg bg-purple-600 hover:bg-purple-700 flex items-center justify-center text-white transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                        </svg>
+                    </button>
+                    <button class="w-8 h-8 rounded-lg bg-zinc-600 hover:bg-red-600 flex items-center justify-center text-zinc-400 hover:text-white transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Loading State Card -->
+        <div class="bg-zinc-700 border border-zinc-600 rounded-lg p-6 transition-all duration-200 relative opacity-50">
+            <!-- Header -->
+            <div class="mb-4">
+                <div class="h-5 bg-zinc-600 rounded loading-shimmer mb-2 w-3/4"></div>
+                <div class="h-4 bg-zinc-600 rounded loading-shimmer w-1/2"></div>
+            </div>
+            
+            <!-- Content -->
+            <div class="mb-4 space-y-3">
+                <div class="h-4 bg-zinc-600 rounded loading-shimmer w-full"></div>
+                <div class="h-4 bg-zinc-600 rounded loading-shimmer w-2/3"></div>
+            </div>
+            
+            <!-- Actions -->
+            <div class="flex items-center justify-between">
+                <div class="flex space-x-2">
+                    <div class="h-6 bg-zinc-600 rounded-full loading-shimmer w-16"></div>
+                </div>
+                
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-zinc-600 rounded-lg loading-shimmer"></div>
+                    <div class="w-8 h-8 bg-zinc-600 rounded-lg loading-shimmer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

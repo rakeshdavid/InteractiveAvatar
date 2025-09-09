@@ -427,7 +427,7 @@ export const usePromptToasts = () => {
       helpers.showError("Failed to update prompt", error),
     
     syncInProgress: () => 
-      helpers.showInfo("Sync in progress", "Updating HeyGen API with latest changes..."),
+      helpers.showInfo("Sync in progress", "Updating Maslow AI with latest changes..."),
     
     syncCompleted: () => 
       helpers.showSuccess("Prompt sync completed", "All your prompts are now up to date"),

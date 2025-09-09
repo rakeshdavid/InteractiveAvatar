@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Component - Variation 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .modal-fade-in {
+            animation: fadeInModal 0.25s ease-out;
+        }
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .gradient-border {
+            background: linear-gradient(135deg, #7559FF, #A855F7);
+            padding: 1px;
+            border-radius: 12px;
+        }
+        .gradient-border-content {
+            background: #3f3f46;
+            border-radius: 11px;
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 min-h-screen flex items-center justify-center p-4">
+    <!-- Modal Overlay -->
+    <div class="modal-overlay fixed inset-0 flex items-center justify-center p-4 z-50">
+        <!-- Modal Container with Gradient Border -->
+        <div class="gradient-border w-full max-w-lg modal-fade-in">
+            <div class="gradient-border-content relative">
+                <!-- Header with Icon -->
+                <div class="px-6 py-5 border-b border-zinc-600 flex items-center">
+                    <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-semibold text-white">Edit Prompt</h2>
+                        <p class="text-sm text-zinc-400">Modify your conversation prompt</p>
+                    </div>
+                    <button class="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-600 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Content with Enhanced Layout -->
+                <div class="px-6 py-5 space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-white mb-2">Prompt Name *</label>
+                        <input type="text" value="Therapist Assistant" class="w-full bg-zinc-600 border-2 border-zinc-500 rounded-lg px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:border-purple-500 focus:bg-zinc-600 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-white mb-2">Opening Line</label>
+                        <input type="text" value="Hello! I'm here to listen and help." class="w-full bg-zinc-600 border-2 border-zinc-500 rounded-lg px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:border-purple-500 focus:bg-zinc-600 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-white mb-2">Custom Instructions</label>
+                        <textarea class="w-full bg-zinc-600 border-2 border-zinc-500 rounded-lg px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:border-purple-500 focus:bg-zinc-600 transition-colors h-28 resize-none">You are a therapeutic AI assistant with a sassy attitude. Be helpful but maintain your personality.</textarea>
+                    </div>
+                    
+                    <!-- Status Indicator -->
+                    <div class="flex items-center space-x-2 text-sm">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span class="text-green-400">Active prompt</span>
+                    </div>
+                </div>
+                
+                <!-- Footer with Enhanced Actions -->
+                <div class="px-6 py-4 bg-zinc-800 rounded-b-[11px] flex justify-between">
+                    <button class="px-4 py-2 text-sm font-medium text-red-400 hover:text-red-300 hover:bg-zinc-700 rounded-lg transition-all">
+                        Delete Prompt
+                    </button>
+                    <div class="flex space-x-3">
+                        <button class="px-4 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-600 rounded-lg transition-all">
+                            Cancel
+                        </button>
+                        <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-800 min-h-[44px]">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
