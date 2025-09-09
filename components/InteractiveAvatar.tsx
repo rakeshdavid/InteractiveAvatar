@@ -22,12 +22,12 @@ import { StreamingAvatarProvider, StreamingAvatarSessionState } from "./logic";
 import { LoadingIcon } from "./Icons";
 import { MessageHistory } from "./AvatarSession/MessageHistory";
 
-import { AVATARS, KNOWLEDGE_BASES } from "@/app/lib/constants";
+import { AVATARS, PROMPTS } from "@/app/lib/constants";
 
 const DEFAULT_CONFIG: StartAvatarRequest = {
-  quality: AvatarQuality.Low,
+  quality: AvatarQuality.High,
   avatarName: AVATARS[0].avatar_id,
-  knowledgeId: KNOWLEDGE_BASES[0].id,
+  knowledgeId: PROMPTS[0].id,
   voice: {
     rate: 1.5,
     emotion: VoiceEmotion.EXCITED,
@@ -47,6 +47,8 @@ function InteractiveAvatar() {
   const { connectionQuality } = useConnectionQuality();
 
   const [config, setConfig] = useState<StartAvatarRequest>(DEFAULT_CONFIG);
+  const [error, setError] = useState<string | null>(null);
+  const [isConnecting, setIsConnecting] = useState(false);
 
   const mediaStream = useRef<HTMLVideoElement>(null);
 
@@ -67,6 +69,8 @@ function InteractiveAvatar() {
   }
 
   const startSessionV2 = useMemoizedFn(async (isVoiceChat: boolean) => {
+    setIsConnecting(true);
+    setError(null);
     try {
       const newToken = await fetchAccessToken();
       const avatar = initAvatar(newToken);
@@ -107,8 +111,25 @@ function InteractiveAvatar() {
       if (isVoiceChat) {
         await startVoiceChat();
       }
+      setIsConnecting(false);
     } catch (error) {
       console.error("Error starting avatar session:", error);
+      setIsConnecting(false);
+      
+      // Set user-friendly error message
+      if (error instanceof Error) {
+        if (error.message.includes('token') || error.message.includes('401')) {
+          setError('Authentication failed. Please check your API key.');
+        } else if (error.message.includes('network') || error.message.includes('fetch')) {
+          setError('Network error. Please check your connection.');
+        } else if (error.message.includes('quota') || error.message.includes('limit')) {
+          setError('Usage limit reached. Please try again later.');
+        } else {
+          setError('Failed to start avatar session. Please try again.');
+        }
+      } else {
+        setError('An unexpected error occurred. Please try again.');
+      }
     }
   });
 
@@ -126,21 +147,44 @@ function InteractiveAvatar() {
   }, [mediaStream, stream]);
 
   return (
-    <div className="w-full flex flex-col gap-4">
-      {/* Connection Quality Notification - Above video frame */}
-      {sessionState !== StreamingAvatarSessionState.INACTIVE && 
-       connectionQuality !== ConnectionQuality.UNKNOWN && (
+    <div className="w-full flex flex-col gap-6">
+      {/* Error Notification */}
+      {error && (
         <div className="flex justify-start">
-          <div className="bg-black text-white rounded-lg px-3 py-2 text-sm">
-            Connection Quality: {connectionQuality}
+          <div className="bg-red-900 border border-red-700 text-red-100 rounded-lg px-4 py-3 text-sm font-medium shadow-sm flex items-center gap-3">
+            <span className="text-red-400">⚠</span>
+            <div>
+              <p className="font-medium">Connection Error</p>
+              <p className="text-red-200 text-xs mt-1">{error}</p>
+            </div>
+            <button
+              onClick={() => setError(null)}
+              className="text-red-400 hover:text-red-300 ml-2"
+              title="Dismiss error"
+            >
+              ✕
+            </button>
           </div>
         </div>
       )}
-      <div className="flex flex-col rounded-xl bg-zinc-900 overflow-hidden">
+      
+      {/* Connection Quality Notification */}
+      {sessionState !== StreamingAvatarSessionState.INACTIVE && 
+       connectionQuality !== ConnectionQuality.UNKNOWN && (
+        <div className="flex justify-start">
+          <div className="bg-zinc-800 border border-zinc-700 text-zinc-100 rounded-lg px-4 py-2 text-sm font-medium shadow-sm">
+            Connection: <span className={`font-semibold ${
+              connectionQuality === ConnectionQuality.GOOD ? 'text-green-400' :
+              connectionQuality === ConnectionQuality.BAD ? 'text-red-400' : 'text-yellow-400'
+            }`}>{connectionQuality}</span>
+          </div>
+        </div>
+      )}
+      <div className="flex flex-col rounded-xl bg-zinc-900 border border-zinc-800 overflow-hidden shadow-lg">
         <div className={`relative w-full overflow-hidden flex flex-col items-center justify-center ${
           sessionState !== StreamingAvatarSessionState.INACTIVE 
             ? "aspect-video" 
-            : "sm:aspect-video min-h-[600px] sm:min-h-0"
+            : "min-h-0"
         }`}>
           {sessionState !== StreamingAvatarSessionState.INACTIVE ? (
             <AvatarVideo ref={mediaStream} />
@@ -148,20 +192,39 @@ function InteractiveAvatar() {
             <AvatarConfig config={config} onConfigChange={setConfig} />
           )}
         </div>
-        <div className="flex flex-col gap-3 items-center justify-center p-4 border-t border-zinc-700 w-full">
+        <div className="flex flex-col gap-4 items-center justify-center p-6 border-t border-zinc-700 w-full bg-zinc-800/50">
           {sessionState === StreamingAvatarSessionState.CONNECTED ? (
             <AvatarControls />
           ) : sessionState === StreamingAvatarSessionState.INACTIVE ? (
-            <div className="flex flex-row gap-4">
-              <Button onClick={() => startSessionV2(true)}>
-                Start Voice Chat
-              </Button>
-              {/* <Button onClick={() => startSessionV2(false)}>
-                Start Text Chat
-              </Button> */}
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-row gap-4">
+                <Button 
+                  onClick={() => startSessionV2(true)}
+                  disabled={isConnecting}
+                >
+                  {isConnecting ? "Starting..." : "Test AI Avatar"}
+                </Button>
+                {/* <Button onClick={() => startSessionV2(false)}>
+                  Start Text Chat
+                </Button> */}
+              </div>
+              {error && (
+                <button
+                  onClick={() => startSessionV2(true)}
+                  className="text-blue-400 hover:text-blue-300 text-sm underline"
+                >
+                  Try Again
+                </button>
+              )}
             </div>
           ) : (
-            <LoadingIcon />
+            <div className="flex flex-col items-center gap-3">
+              <LoadingIcon />
+              <div className="text-center">
+                <p className="text-zinc-300 text-sm">Connecting to avatar...</p>
+                <p className="text-zinc-500 text-xs mt-1">This may take a moment</p>
+              </div>
+            </div>
           )}
         </div>
       </div>

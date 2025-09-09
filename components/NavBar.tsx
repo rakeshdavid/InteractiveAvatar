@@ -12,7 +12,7 @@ export default function NavBar() {
           <RivalistaLogo />
           <div>
             <p className="text-xl font-semibold text-white">
-              Interactive AI Avatar Demo
+              Interactive AI Avatar Playground
             </p>
           </div>
         </div>

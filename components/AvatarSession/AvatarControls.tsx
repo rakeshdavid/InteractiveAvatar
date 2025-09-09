@@ -18,9 +18,11 @@ export const AvatarControls: React.FC = () => {
   const { interrupt } = useInterrupt();
 
   return (
-    <div className="flex flex-col gap-3 relative w-full items-center">
+    <div className="flex flex-col gap-4 relative w-full items-center">
       <ToggleGroup
-        className={`bg-zinc-700 rounded-lg p-1 ${isVoiceChatLoading ? "opacity-50" : ""}`}
+        className={`bg-zinc-700 border border-zinc-600 rounded-lg p-1 transition-all duration-200 ${
+          isVoiceChatLoading ? "opacity-50 cursor-not-allowed" : ""
+        }`}
         disabled={isVoiceChatLoading}
         type="single"
         value={isVoiceChatActive || isVoiceChatLoading ? "voice" : "text"}
@@ -37,21 +39,31 @@ export const AvatarControls: React.FC = () => {
         }}
       >
         <ToggleGroupItem
-          className="data-[state=on]:bg-zinc-800 rounded-lg py-3 px-4 text-sm w-[90px] text-center min-h-[44px] touch-manipulation flex items-center justify-center"
+          className="data-[state=on]:bg-zinc-800 data-[state=on]:text-white hover:bg-zinc-600 text-zinc-300 rounded-lg py-3 px-4 text-sm w-[90px] text-center min-h-[44px] touch-manipulation flex items-center justify-center transition-all duration-200"
           value="voice"
         >
-          Voice Chat
+          {isVoiceChatLoading && isVoiceChatActive ? "Connecting..." : "Voice Chat"}
         </ToggleGroupItem>
         <ToggleGroupItem
-          className="data-[state=on]:bg-zinc-800 rounded-lg py-3 px-4 text-sm w-[90px] text-center min-h-[44px] touch-manipulation flex items-center justify-center"
+          className="data-[state=on]:bg-zinc-800 data-[state=on]:text-white hover:bg-zinc-600 text-zinc-300 rounded-lg py-3 px-4 text-sm w-[90px] text-center min-h-[44px] touch-manipulation flex items-center justify-center transition-all duration-200"
           value="text"
         >
           Text Chat
         </ToggleGroupItem>
       </ToggleGroup>
-      {isVoiceChatActive || isVoiceChatLoading ? <AudioInput /> : <TextInput />}
+      
+      {/* Input Area */}
+      <div className="w-full">
+        {isVoiceChatActive || isVoiceChatLoading ? <AudioInput /> : <TextInput />}
+      </div>
+      
+      {/* Interrupt Button */}
       <div className="absolute top-[-70px] right-3">
-        <Button className="!bg-zinc-700 !text-white" onClick={interrupt}>
+        <Button 
+          className="!bg-red-600 hover:!bg-red-700 !text-white !px-4 !py-2 !text-sm"
+          onClick={interrupt}
+          title="Stop avatar from speaking"
+        >
           Interrupt
         </Button>
       </div>

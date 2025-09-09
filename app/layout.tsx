@@ -4,6 +4,7 @@ import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
 
 import NavBar from "@/components/NavBar";
 import { InstallPrompt } from "@/components/InstallPrompt";
+import { ToastProvider } from "@/components/ui/Toast";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -25,8 +26,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Interactive AI Avatar Demo",
-    template: `%s - Interactive AI Avatar Demo`,
+    default: "Interactive AI Avatar Playground",
+    template: `%s - Interactive AI Avatar Playground`,
   },
   description: "AI Avatar Interactive Experience - Chat with realistic AI avatars powered by HeyGen",
   keywords: ["AI", "Avatar", "Chat", "Interactive", "HeyGen", "Conversation", "PWA"],
@@ -43,21 +44,21 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Interactive AI Avatar Demo",
+    title: "Interactive AI Avatar Playground",
     description: "AI Avatar Interactive Experience - Chat with realistic AI avatars",
-    siteName: "Interactive AI Avatar Demo",
+    siteName: "Interactive AI Avatar Playground",
     images: [
       {
         url: "/demo.png",
         width: 1200,
         height: 800,
-        alt: "Interactive AI Avatar Demo",
+        alt: "Interactive AI Avatar Playground",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Interactive AI Avatar Demo",
+    title: "Interactive AI Avatar Playground",
     description: "AI Avatar Interactive Experience - Chat with realistic AI avatars",
     images: ["/demo.png"],
   },
@@ -71,16 +72,18 @@ export default function RootLayout({
   return (
     <html
       suppressHydrationWarning
-      className={`${fontSans.variable} ${fontMono.variable} font-sans`}
+      className={`${fontSans.variable} ${fontMono.variable} font-sans dark`}
       lang="en"
     >
       <head />
       <body className="min-h-screen bg-black text-white">
-        <main className="relative flex flex-col gap-6 h-screen w-screen">
-          <NavBar />
-          {children}
-        </main>
-        <InstallPrompt />
+        <ToastProvider>
+          <main className="relative flex flex-col gap-6 h-screen w-screen">
+            <NavBar />
+            {children}
+          </main>
+          <InstallPrompt />
+        </ToastProvider>
       </body>
     </html>
   );
