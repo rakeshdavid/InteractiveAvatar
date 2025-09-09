@@ -35,11 +35,12 @@ import {
 } from 'lucide-react';
 import type { Prompt } from '@/app/types/prompt';
 
-// Enhanced validation with higher limits
+// Enhanced validation with industry-standard limits
+// These limits match the backend validation in app/lib/prompt-utils.ts
 const LIMITS = {
-  name: 150,
-  openingLine: 1000,
-  customPrompt: 8000, // Significantly increased for professional use
+  name: 100,           // Adequate for typical prompt names (matches backend)
+  openingLine: 1500,   // Allows comprehensive avatar introductions (matches backend) 
+  customPrompt: 15000, // Enables professional use cases like therapy prompts (matches backend)
 } as const;
 
 export interface PromptEngineeringSheetProps {

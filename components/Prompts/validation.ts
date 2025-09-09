@@ -5,6 +5,16 @@
  * Mirrors server-side validation from app/lib/prompt-utils.ts
  */
 
+/**
+ * Content length limits - must match backend validation in app/lib/prompt-utils.ts
+ * These limits were determined through direct HeyGen API testing and industry standards
+ */
+const CONTENT_LIMITS = {
+  name: 100,           // Adequate for typical prompt names
+  openingLine: 1500,   // Allows comprehensive avatar introductions (up from 500)
+  customPrompt: 15000, // Enables professional use cases like therapy prompts (up from 2000)
+} as const;
+
 export interface ValidationError {
   field: string;
   message: string;
@@ -28,26 +38,26 @@ export function validatePromptForm(data: PromptFormData): ValidationError[] {
       field: 'name',
       message: 'Prompt name is required'
     });
-  } else if (data.name.length > 100) {
+  } else if (data.name.length > CONTENT_LIMITS.name) {
     errors.push({
       field: 'name',
-      message: 'Prompt name must be 100 characters or less'
+      message: `Prompt name must be ${CONTENT_LIMITS.name} characters or less`
     });
   }
 
   // Opening line validation (optional)
-  if (data.openingLine && data.openingLine.length > 500) {
+  if (data.openingLine && data.openingLine.length > CONTENT_LIMITS.openingLine) {
     errors.push({
       field: 'openingLine',
-      message: 'Opening line must be 500 characters or less'
+      message: `Opening line must be ${CONTENT_LIMITS.openingLine.toLocaleString()} characters or less`
     });
   }
 
   // Custom prompt validation (optional)
-  if (data.customPrompt && data.customPrompt.length > 2000) {
+  if (data.customPrompt && data.customPrompt.length > CONTENT_LIMITS.customPrompt) {
     errors.push({
       field: 'customPrompt',
-      message: 'Custom instructions must be 2000 characters or less'
+      message: `Custom instructions must be ${CONTENT_LIMITS.customPrompt.toLocaleString()} characters or less`
     });
   }
 

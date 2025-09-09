@@ -62,9 +62,9 @@ export function PromptForm({
     // Enforce character limits in real-time
     let truncatedValue = value;
     const limits = {
-      name: 100,
-      openingLine: 500,
-      customPrompt: 2000,
+      name: 100,           // Adequate for typical prompt names
+      openingLine: 1500,   // Allows comprehensive avatar introductions (up from 500)
+      customPrompt: 15000, // Enables professional use cases like therapy prompts (up from 2000)
     };
     
     if (value.length > limits[field]) {
@@ -209,7 +209,7 @@ export function PromptForm({
                   : 'border-zinc-600 focus:border-[#7559FF] hover:border-zinc-500'
               }`}
               placeholder="Enter opening line for conversations..."
-              maxLength={500}
+              maxLength={1500}
               disabled={isSubmitting}
             />
             {getFieldError(errors, 'openingLine') && (
@@ -218,15 +218,15 @@ export function PromptForm({
               </p>
             )}
             <p className={`mt-1 text-xs ${
-              (formData.openingLine || '').length > 450 ? 'text-yellow-400 font-medium' : 
-              (formData.openingLine || '').length === 500 ? 'text-red-400 font-bold' : 
+              (formData.openingLine || '').length > 1350 ? 'text-yellow-400 font-medium' : 
+              (formData.openingLine || '').length === 1500 ? 'text-red-400 font-bold' : 
               'text-zinc-400'
             }`}>
-              {(formData.openingLine || '').length}/500 characters
-              {(formData.openingLine || '').length > 450 && (formData.openingLine || '').length < 500 && (
+              {(formData.openingLine || '').length}/1,500 characters
+              {(formData.openingLine || '').length > 1350 && (formData.openingLine || '').length < 1500 && (
                 <span className="ml-2 text-yellow-300">• Approaching limit</span>
               )}
-              {(formData.openingLine || '').length === 500 && (
+              {(formData.openingLine || '').length === 1500 && (
                 <span className="ml-2 text-red-300">• Character limit reached</span>
               )}
             </p>
@@ -278,7 +278,7 @@ _____
 
 [Provide any instructions for how the Interactive Avatar should act in its conversations with users. Should it limit all conversation to only certain subjects, for example, the knowledge you have]
 _____`}
-              maxLength={2000}
+              maxLength={15000}
               disabled={isSubmitting}
             />
             {getFieldError(errors, 'customPrompt') && (
@@ -287,15 +287,15 @@ _____`}
               </p>
             )}
             <p className={`mt-1 text-xs ${
-              (formData.customPrompt || '').length > 1800 ? 'text-yellow-400 font-medium' : 
-              (formData.customPrompt || '').length === 2000 ? 'text-red-400 font-bold' : 
+              (formData.customPrompt || '').length > 13500 ? 'text-yellow-400 font-medium' : 
+              (formData.customPrompt || '').length === 15000 ? 'text-red-400 font-bold' : 
               'text-zinc-400'
             }`}>
-              {(formData.customPrompt || '').length}/2000 characters
-              {(formData.customPrompt || '').length > 1800 && (formData.customPrompt || '').length < 2000 && (
+              {(formData.customPrompt || '').length}/15,000 characters
+              {(formData.customPrompt || '').length > 13500 && (formData.customPrompt || '').length < 15000 && (
                 <span className="ml-2 text-yellow-300">• Approaching limit</span>
               )}
-              {(formData.customPrompt || '').length === 2000 && (
+              {(formData.customPrompt || '').length === 15000 && (
                 <span className="ml-2 text-red-300">• Character limit reached</span>
               )}
             </p>

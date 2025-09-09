@@ -1,6 +1,6 @@
 /**
  * TypeScript type definitions for HeyGen Prompts Management
- * 
+ *
  * Frontend uses "Prompt" terminology, backend/API uses "knowledge_base"
  * as per HeyGen API naming conventions.
  */
@@ -55,11 +55,11 @@ export interface HeyGenCreateAPIResponse {}
 
 export interface HeyGenUpdateAPIResponse {
   data: {
-    knowledge_base_id: string;
+    id: string;
     name: string;
     description?: string;
-    opening_line?: string;
-    custom_prompt?: string;
+    opening?: string;
+    prompt?: string;
   };
 }
 
