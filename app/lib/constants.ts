@@ -1,3 +1,10 @@
+// HeyGen API Endpoint Constants
+export const HEYGEN_API_ENDPOINTS = {
+  KNOWLEDGE_BASE_LIST: "/v1/streaming/knowledge_base/list",
+  KNOWLEDGE_BASE_CREATE: "/v1/streaming/knowledge_base/create",
+  KNOWLEDGE_BASE_UPDATE: "/v1/streaming/knowledge_base", // /{knowledge_base_id} appended
+} as const;
+
 export const AVATARS = [
   {
     avatar_id: "Ann_Therapist_public",
@@ -71,7 +78,7 @@ export const AVATARS = [
   },
 ];
 
-export const KNOWLEDGE_BASES = [
+export const PROMPTS = [
   {
     id: "7f39f2101a6e419193426528c68f46b3",
     name: "Therapist",
@@ -88,6 +95,9 @@ export const KNOWLEDGE_BASES = [
     description: "An enthusiastic sports companion for discussions about games, teams, and athletic activities"
   },
 ];
+
+// Backward compatibility alias
+export const KNOWLEDGE_BASES = PROMPTS;
 
 export const STT_LANGUAGE_LIST = [
   { label: "Bulgarian", value: "bg", key: "bg" },
